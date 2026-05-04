@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class GameStartManager : MonoBehaviour
 {
@@ -84,28 +85,34 @@ public class GameStartManager : MonoBehaviour
 			menu.SetTrigger("TurnMenu");
 		}*/
 
-        /*if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            if (selectedIndex < 3)
-            {
-                selectedIndex++;
-                UpdateSelectorPosition();
-            }
-        }
+        // if (Input.GetKeyDown(KeyCode.DownArrow))
+        // {
+        //     if (selectedIndex < 3)
+        //     {
+        //         selectedIndex++;
+        //         UpdateSelectorPosition();
+        //     }
+        // }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            if (selectedIndex > 1)
-            {
-                selectedIndex--;
-                UpdateSelectorPosition();
-            }
-        }
+        // if (Input.GetKeyDown(KeyCode.UpArrow))
+        // {
+        //     if (selectedIndex > 1)
+        //     {
+        //         selectedIndex--;
+        //         UpdateSelectorPosition();
+        //     }
+        // }
 
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Fire1"))
+        // if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Fire1"))
+        // {
+        //     HandleSelection();
+        // }
+
+        if(EventSystem.current.currentSelectedGameObject == null &&
+            (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0))
         {
-            HandleSelection();
-        }*/
+            EventSystem.current.SetSelectedGameObject(startOption);
+        }
 	}
 
     void UpdateSelectorPosition()

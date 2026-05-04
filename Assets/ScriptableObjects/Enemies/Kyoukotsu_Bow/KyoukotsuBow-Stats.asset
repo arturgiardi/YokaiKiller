@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea03e720dd2bfb245aa225282b64736a, type: 3}
+  m_Name: KyoukotsuBow-Stats
+  m_EditorClassIdentifier: 
+  alive: 1
+  level: 2
+  experience: 28
+  maxHealth: 22
+  currentHealth: 0
+  enemyName: Kyoukotsu
+  activationRange: 6
+  activationHeight: 0.35
+  interactionRange: 4
+  wallDetectionRange: 0.75
+  leapRange: 0.35
+  leapDepth: 1.1
+  showLifeBar: 1
+  showName: 1
+  boss: 0
+  damage: {fileID: 11400000, guid: 3400326cee188e7438f724ffb1cf4a93, type: 2}
+  defense: {fileID: 11400000, guid: 0fd385206e3bc1b42951afe9329c8a67, type: 2}

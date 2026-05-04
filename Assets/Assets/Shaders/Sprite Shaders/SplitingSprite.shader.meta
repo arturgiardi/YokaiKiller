@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: b389309693c81ba40bb7e760ecb084bb
+timeCreated: 1525923432
+licenseType: Pro
+ShaderImporter:
+  defaultTextures:
+  - _SplitMap: {fileID: 2800000, guid: 1da3afee7644c1047944cd990ab95700, type: 3}
+  - _CutMap: {fileID: 2800000, guid: 23cc967d6bc02ea45be1e34082511e94, type: 3}
+  - _DissolveMap: {fileID: 2800000, guid: 28c7aad1372ff114b90d330f8a2dd938, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

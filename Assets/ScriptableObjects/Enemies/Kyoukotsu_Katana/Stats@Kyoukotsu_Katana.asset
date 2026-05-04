@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea03e720dd2bfb245aa225282b64736a, type: 3}
+  m_Name: Stats@Kyoukotsu_Katana
+  m_EditorClassIdentifier: 
+  alive: 1
+  level: 1
+  experience: 17
+  maxHealth: 20
+  currentHealth: 0
+  enemyName: Kyoukotsu
+  activationRange: 2.85
+  activationHeight: 0.2
+  interactionRange: 0.75
+  wallDetectionRange: 0.68
+  leapRange: 0.35
+  leapDepth: 0.8
+  showLifeBar: 1
+  showName: 1
+  boss: 0
+  damage: {fileID: 11400000, guid: ceb268683a1b54f45a9ea768060e07ed, type: 2}
+  defense: {fileID: 11400000, guid: f13384172ccb05c458839515d56a7f7b, type: 2}

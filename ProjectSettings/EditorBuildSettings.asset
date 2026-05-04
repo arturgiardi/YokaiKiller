@@ -1,0 +1,125 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 6def31dd2c671f64f9409a295bb3e115
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_1/TestAreas/TestRoom.unity
+    guid: e4ff7865c01a69e40bf16a7ccac31d78
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_1/Area1_Room1.unity
+    guid: 11a52ef60e00ff34a9b0af556f95a57c
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_1/Area1_Room2.unity
+    guid: 9a9d6e5934bbe8c4fae2012c4ac21922
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_1/Area1_Room2.1.unity
+    guid: 499df84f298e63d4483082a665f15ed0
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_1/Area1_Room3.unity
+    guid: f48a7edf6fee55548831e1fb18fc325e
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_1/Area1_Room3.1.unity
+    guid: ea2587b0a2bd4a0479601598f333e66c
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_1/Area1_Room3.2.unity
+    guid: 2e6f3d0eb5d145945adefb82045d14d9
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_1/Area1_Room3.3.unity
+    guid: 768c2ce26900c36419afa679042aaeeb
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_1/Area1_Room3.4.unity
+    guid: d1ff3d76f961bcb4087678fb2233fd6e
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_1/Area1_Room3.5.unity
+    guid: 3b5deea1d5120914bace7b85ec6fc17e
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_1/Area1_Room3.6.unity
+    guid: fdd96f463367fb447bcc8e99dcfc2ed7
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_1/Area1_Room3.7.unity
+    guid: 82454522e52b22a41acacbe5a368e2a4
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_1/Area1_Room3.8.unity
+    guid: de86c6ee59ff6a548b47e1a9452bc4f1
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_1/Area1_Room4.unity
+    guid: c34c5b6f97b7a484091064858a3502d0
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_1/Area1_Room5.unity
+    guid: fd1443c9694f8e34bb5c3cf33c09bc5c
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_1/Area1_Room6.unity
+    guid: 65ddcc6e563a6cd469dff789213e72a7
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_1/Area1_Room3.6/Area1_Room7.unity
+    guid: 42fa0220fefbded4aa8af294bf6aeb1c
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_1/Area1_Room8.unity
+    guid: a65d5ce426472434cba304205b3ad4d1
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_1/Area1_Room9.unity
+    guid: ce79ceb523720cc478e8162c54c0ca8a
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_1/Area1_Room9.1.unity
+    guid: 530f6a0583ea45c48854eaa0987e82d7
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_1/Area1_Room10.unity
+    guid: 709d7909f4c82194ea9466a60023d84a
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_1/Area1_Room11.unity
+    guid: 1e730c8cbee4423409eccd375cf3a4e0
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_1/Area1_Room12.unity
+    guid: b825555dfa862634fae944b3f5d425bd
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_1/Area1_Room13.unity
+    guid: cf1aae80e8b9b074484d737f6811a169
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_1/Area1_Room15.unity
+    guid: c3f42300032592342839d13f553d2499
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_1/Area1_Room14.unity
+    guid: f5b5bddfb38799840b016e5201cdf993
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_1/Area1_Room16.unity
+    guid: 6f467236f6dd16b4398592a11702c831
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_1/Area1_Room17.unity
+    guid: 76b7355dd2f1dcf46a4855650526cc82
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_1/Area1_Room18.unity
+    guid: 78bc328281ee85440a39f993b4dd4983
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_1/Area1_Room19.unity
+    guid: 7dde8c2b10c7eb94fad9edce9f56d313
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_2/Area2_Room2.unity
+    guid: 52d75b3548b7035428ce9d13ebe964f0
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_2/Area2_Room3.unity
+    guid: 0c6405c1861accd45b447d57c6142001
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_2/Area2_Room4.unity
+    guid: 63a755d9805a4b843b83bcde440dde86
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_2/Area2_Room5.unity
+    guid: f16a11eaa665cc745a4eda17689f30f3
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_2/Area2_Room6.unity
+    guid: 1053f5b2695228f418022bb258b222c2
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_2/Area2_Room10.unity
+    guid: 1e36977a33c0f4b468d25a2e26f71bc2
+  - enabled: 1
+    path: Assets/Scenes/Old Areas/Area_2/Area2_Room12.unity
+    guid: 6b46ae572efec984596012fa45d0c9ce
+  - enabled: 0
+    path: Assets/Scenes/Course Demo/Course Demo.unity
+    guid: cdaeee72092ce17498e1861722d4b563
+  m_configObjects: {}

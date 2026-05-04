@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b55699ec091300348b962dd85e0b4df5, type: 3}
+  m_Name: KeyboardMouse_Default_Input_Map_OLD
+  m_EditorClassIdentifier: 
+  controllerType: 1
+  aInput: 32
+  xInput: 323
+  yInput: 0
+  bInput: 325
+  rbInput: 0
+  rtInput: 324
+  rsInput: 0
+  lbInput: 0
+  ltInput: 113
+  lsInput: 0
+  backInput: 0
+  startInput: 13
+  rHorizontalInput:
+    axisType: 1
+    axisName: 
+    positiveKey: 100
+    negativeKey: 97
+    lastState: 0
+  lHorizontalInput:
+    axisType: 0
+    axisName: 
+    positiveKey: 0
+    negativeKey: 0
+    lastState: 0
+  rVerticalInput:
+    axisType: 1
+    axisName: 
+    positiveKey: 119
+    negativeKey: 115
+    lastState: 0
+  lVerticalInput:
+    axisType: 0
+    axisName: 
+    positiveKey: 0
+    negativeKey: 0
+    lastState: 0
+  menuHorizontalInput:
+    axisType: 1
+    axisName: 
+    positiveKey: 100
+    negativeKey: 97
+    lastState: 0
+  menuVerticalInput:
+    axisType: 1
+    axisName: 
+    positiveKey: 119
+    negativeKey: 115
+    lastState: 0
+  customAxisButtons: []

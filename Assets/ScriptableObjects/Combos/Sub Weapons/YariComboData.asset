@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a275a72e068a717418ad1fbeeee869dc, type: 3}
+  m_Name: YariComboData
+  m_EditorClassIdentifier: 
+  sequence:
+  - animationName: Yari
+    dodgeTime: 0.7
+    minTime: 0.75
+    nextChain: 0.8
+    maxTime: 0.8
+  airSequence:
+  - animationName: Yari Air
+    dodgeTime: 0.7
+    minTime: 0.75
+    nextChain: 0.8
+    maxTime: 0.8
+  airMovingSequence:
+  - animationName: Yari Air
+    dodgeTime: 0.7
+    minTime: 0.75
+    nextChain: 0.8
+    maxTime: 0.8
+  crouchingSequence:
+  - animationName: Yari Crouching
+    dodgeTime: 0.7
+    minTime: 0.75
+    nextChain: 0.8
+    maxTime: 0.8

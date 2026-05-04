@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc525b8af6d2e54092f6705ad44131d, type: 3}
+  m_Name: Ao-bozu@Shield
+  m_EditorClassIdentifier: 
+  actions:
+  - {fileID: 11400000, guid: a19ac32eb02cd564495a2a03338359fb, type: 2}
+  - {fileID: 11400000, guid: e3c5920979fcb464bab0c178bc80cc32, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: 0144b87a4b0c5b945835974b46ed4844, type: 2}
+    trueState: {fileID: 11400000, guid: 50307f2c9ca1d9d40a69e0c60301ba64, type: 2}
+    falseState: {fileID: 0}

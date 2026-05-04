@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Point_A
+  - Point_B
+  - Point_C
+  - Point_D
+  - Point_E
+  - Game Music
+  - Platform
+  - SwitchZone
+  - CameraLimits
+  - PlayerTarget
+  - Point_SAVE
+  - Boss
+  - Script Target
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Actors
+  - Scene Sprites
+  - Scene Collider
+  - Scene Trigger
+  - Items
+  - Enemies
+  - ParticleCollider
+  - Player Damage Dealler
+  - Player Damage Receiver
+  - Enemy Damage Dealler
+  - Enemy Damage Receiver
+  - Damage Blocker
+  - PlayerPlatform
+  - EnemyPlatform
+  - EnemyProjectile
+  - DefaultCollider
+  - Flying Enemy
+  - Background
+  - Patrol Block
+  - EnemyBlocker
+  - 
+  - 
+  - PopupText
+  - Camera Limitator
+  m_SortingLayers:
+  - name: Over
+    uniqueID: 943688851
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d8f36e7e2c7d8a4aafa20230b22a3d0, type: 3}
+  m_Name: Yurei_Reaction
+  m_EditorClassIdentifier: 
+  switchOnce: 0
+  switched: 0
+  resetCD: 1
+  reactionCounter: 5
+  internalReactionCounter: 0
+  state: {fileID: 11400000, guid: 83ef25fc88f4f6a4f962af4b3c20108a, type: 2}

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be1d7cbede8d74d43a01a9964c8e45db, type: 3}
+  m_Name: 0005
+  m_EditorClassIdentifier: 
+  id: 5
+  iName: Chama Espiritual
+  iDesc: Aumenta a quantidade de almas absorvidas ao eliminar inimigos em 10%.
+  iType: 3
+  iIconID: 0
+  iIcon: {fileID: 0}
+  iStats:
+    damage: {fileID: 0}
+    defense: {fileID: 0}
+  stackable: 1
+  stack: 0
+  maxStack: 99
+  equipBehaviour: {fileID: 11400000, guid: 711d24d99d4a73c449ff893baa0e6df1, type: 2}

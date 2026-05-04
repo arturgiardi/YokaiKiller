@@ -1,0 +1,752 @@
+fileFormatVersion: 2
+guid: aa89dc949bdbb944bb96dcae583643f0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Usui@Attack Dash_0
+  - first:
+      213: 21300002
+    second: Usui@Attack Dash_1
+  - first:
+      213: 21300004
+    second: Usui@Attack Dash_2
+  - first:
+      213: 21300006
+    second: Usui@Attack Dash_3
+  - first:
+      213: 21300008
+    second: Usui@Attack Dash_4
+  - first:
+      213: 21300010
+    second: Usui@Attack Dash_5
+  - first:
+      213: 21300012
+    second: Usui@Attack Dash_6
+  - first:
+      213: 21300014
+    second: Usui@Attack Dash_7
+  - first:
+      213: 21300016
+    second: Usui@Attack Dash_8
+  - first:
+      213: 21300018
+    second: Usui@Attack Dash_9
+  - first:
+      213: 21300020
+    second: Usui@Attack Dash_10
+  - first:
+      213: 21300022
+    second: Usui@Attack Dash_11
+  - first:
+      213: 21300024
+    second: Usui@Attack Dash_12
+  - first:
+      213: 21300026
+    second: Usui@Attack Dash_13
+  - first:
+      213: 21300028
+    second: Usui@Attack Dash_14
+  - first:
+      213: 21300030
+    second: Usui@Attack Dash_15
+  - first:
+      213: 21300032
+    second: Usui@Attack Dash_16
+  - first:
+      213: 21300034
+    second: Usui@Attack Dash_17
+  - first:
+      213: 21300036
+    second: Usui@Attack Dash_18
+  - first:
+      213: 21300038
+    second: Usui@Attack Dash_19
+  - first:
+      213: 21300040
+    second: Usui@Attack Dash_20
+  - first:
+      213: 21300042
+    second: Usui@Attack Dash_21
+  - first:
+      213: 21300044
+    second: Usui@Attack Dash_22
+  - first:
+      213: 21300046
+    second: Usui@Attack Dash_23
+  - first:
+      213: 21300048
+    second: Usui@Attack Dash_24
+  - first:
+      213: 21300050
+    second: Usui@Attack Dash_25
+  - first:
+      213: 21300052
+    second: Usui@Attack Dash_26
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 50
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Usui@Attack Dash_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 594
+        width: 177
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bd91a3c61ae1c44ea7bcdc71bddff99
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Usui@Attack Dash_1
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 594
+        width: 177
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d6c77206e570624c8858f4b7c7f3311
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Usui@Attack Dash_2
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 594
+        width: 177
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd650b016205dbb4e973ecefec8c7136
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Usui@Attack Dash_3
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 594
+        width: 177
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 336c230371786dd4186e45f0eae11d03
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Usui@Attack Dash_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 495
+        width: 177
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e72391f1c382344690b0787d0bb5dd4
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Usui@Attack Dash_5
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 495
+        width: 177
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3446f4ee17b6b614b9e18ba6a3ba7b59
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Usui@Attack Dash_6
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 495
+        width: 177
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f49114287e889a74f931790cdb86452f
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Usui@Attack Dash_7
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 495
+        width: 177
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4aa5283bff6b0a47a31ae480cb8a17b
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Usui@Attack Dash_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 396
+        width: 177
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 365084fd066a7f3428be55f5dc8c835f
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Usui@Attack Dash_9
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 396
+        width: 177
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 648dc681794debd4db35f6952bc2b5a7
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Usui@Attack Dash_10
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 396
+        width: 177
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc20ca80e933c304fbc52e9a974a3d31
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Usui@Attack Dash_11
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 396
+        width: 177
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abb543fe49a40404b95d0bd526e805e9
+      internalID: 21300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Usui@Attack Dash_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 297
+        width: 177
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa95c90df3ac7e14da3dbcae59833883
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Usui@Attack Dash_13
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 297
+        width: 177
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b60b4e34687146544b0fa481b70c584c
+      internalID: 21300026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Usui@Attack Dash_14
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 297
+        width: 177
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ee4e2f1e5f8f0f4db508530564f272e
+      internalID: 21300028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Usui@Attack Dash_15
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 297
+        width: 177
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 957954b85e15f3d4b906c4fd823e323d
+      internalID: 21300030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Usui@Attack Dash_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 198
+        width: 177
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 364a4cb4fe1eb8f49b0dc0a24114ed9a
+      internalID: 21300032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Usui@Attack Dash_17
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 198
+        width: 177
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2faee14e4b9af44399c65b5b74837f6
+      internalID: 21300034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Usui@Attack Dash_18
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 198
+        width: 177
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1134fb57286d7c4db3212fe7d7f6a95
+      internalID: 21300036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Usui@Attack Dash_19
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 198
+        width: 177
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a75804c8be3f9e4bbe37e9312eecafc
+      internalID: 21300038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Usui@Attack Dash_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 99
+        width: 177
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0417450b7a23d1498604bfd9217d306
+      internalID: 21300040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Usui@Attack Dash_21
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 99
+        width: 177
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63e83507fd9b2fe45a12e2a7f577ecc9
+      internalID: 21300042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Usui@Attack Dash_22
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 99
+        width: 177
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72e903a25e1c33c4c919ab61fb440ecd
+      internalID: 21300044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Usui@Attack Dash_23
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 99
+        width: 177
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6122f49c3f6cf1542a1d63583b8ebb82
+      internalID: 21300046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Usui@Attack Dash_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 177
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90160b7585403db448a5b5bc5c7c1a0c
+      internalID: 21300048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Usui@Attack Dash_25
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 0
+        width: 177
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a924918f4867cf74a9a43491529b4bee
+      internalID: 21300050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Usui@Attack Dash_26
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 0
+        width: 177
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23ff24046d3a7684fb60c7467cac8846
+      internalID: 21300052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: c236200971b7d32438f4166673f3df8e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

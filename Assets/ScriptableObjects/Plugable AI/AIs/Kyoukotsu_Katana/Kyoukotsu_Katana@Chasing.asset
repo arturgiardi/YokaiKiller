@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc525b8af6d2e54092f6705ad44131d, type: 3}
+  m_Name: Kyoukotsu_Katana@Chasing
+  m_EditorClassIdentifier: 
+  actions:
+  - {fileID: 11400000, guid: db84808a726b4ca4186e945600b6c445, type: 2}
+  - {fileID: 11400000, guid: 4704f4e9f224fd74ea08bde0a5154c9f, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: 5462c84fe8bf9864f99ac028b79ae519, type: 2}
+    trueState: {fileID: 0}
+    falseState: {fileID: 11400000, guid: efdc62bb3597fc1438f0f856e531e273, type: 2}
+  - decision: {fileID: 11400000, guid: dc34370e9ce23df47a37bc2cd0d34fa8, type: 2}
+    trueState: {fileID: 11400000, guid: fa26566e93c1b7542a67480a629cd96c, type: 2}
+    falseState: {fileID: 0}
+  - decision: {fileID: 11400000, guid: 2d0bbd919efba8b4c97123cefca3536b, type: 2}
+    trueState: {fileID: 11400000, guid: 7497a17fcbe3c614f84070f60aa7a8f3, type: 2}
+    falseState: {fileID: 0}

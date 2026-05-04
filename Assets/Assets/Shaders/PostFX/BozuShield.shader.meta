@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 98395e6ab01f182479ae3b9abe382738
+timeCreated: 1526765768
+licenseType: Pro
+ShaderImporter:
+  defaultTextures:
+  - _MainTex: {fileID: 2800000, guid: 28c7aad1372ff114b90d330f8a2dd938, type: 3}
+  - _FadeMap: {fileID: 2800000, guid: 7bda051d28f15594b9cdd65ac20ef929, type: 3}
+  - _EdgeShine: {fileID: 2800000, guid: 41b4318e7e64c8642859b8f95fa8da1b, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

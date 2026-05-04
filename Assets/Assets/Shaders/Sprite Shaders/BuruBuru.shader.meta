@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: b8081a63ab904804cb04996b49c83862
+timeCreated: 1518611439
+licenseType: Free
+ShaderImporter:
+  defaultTextures:
+  - _MainTex: {fileID: 2800000, guid: f2d0e704a33668c4a8a62f514b196d4f, type: 3}
+  - _DissolveMap: {fileID: 2800000, guid: 28c7aad1372ff114b90d330f8a2dd938, type: 3}
+  - _AlphaSlide: {fileID: 2800000, guid: 5c69f5dac3520194c95e3b0ddc27acb9, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc525b8af6d2e54092f6705ad44131d, type: 3}
+  m_Name: OniHead@Blocked
+  m_EditorClassIdentifier: 
+  actions:
+  - {fileID: 11400000, guid: 4704f4e9f224fd74ea08bde0a5154c9f, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: bfb6922ee84becf448b084e1da0bd8d7, type: 2}
+    trueState: {fileID: 0}
+    falseState: {fileID: 11400000, guid: 72a2938c2212f784ca6813e840593184, type: 2}
+  - decision: {fileID: 11400000, guid: 5462c84fe8bf9864f99ac028b79ae519, type: 2}
+    trueState: {fileID: 0}
+    falseState: {fileID: 11400000, guid: 09593e5eeda6e064da900974b4a5134b, type: 2}

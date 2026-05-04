@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5129155a624fd674b901d5a7932cc4cd, type: 3}
+  m_Name: AoBozu Shield
+  m_EditorClassIdentifier: 
+  ammount: 0
+  power: 2
+  positiveVariation: 1
+  negativeVariation: 0
+  intensity: 1
+  contactTime: 0.12
+  criticalChance: 0
+  criticalMultiplier: 0
+  chargedMultiplier: 0
+  elementalInfo:
+    fire: 0
+    water: 0
+    earth: 0
+    thunder: 1
+  criticalBuild: 0
+  critical: 0
+  charged: 0
+  healthPlus: 0

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc525b8af6d2e54092f6705ad44131d, type: 3}
+  m_Name: Yurei@DashForward
+  m_EditorClassIdentifier: 
+  actions:
+  - {fileID: 11400000, guid: 4704f4e9f224fd74ea08bde0a5154c9f, type: 2}
+  - {fileID: 11400000, guid: 83a14a6a9ef8cf5418890bd1d663b617, type: 2}
+  - {fileID: 11400000, guid: 74e5b93b5752ff643af5852ffb9dfd33, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: 0144b87a4b0c5b945835974b46ed4844, type: 2}
+    trueState: {fileID: 11400000, guid: 99c9ebe7991c0ac478b3154853ded16f, type: 2}
+    falseState: {fileID: 11400000, guid: 8a8abe8c7368e984f81041d4cf3ae241, type: 2}

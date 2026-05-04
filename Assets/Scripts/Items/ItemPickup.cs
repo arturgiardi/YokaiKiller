@@ -39,6 +39,10 @@ public class ItemPickup : MonoBehaviour
             }
             gameObject.SetActive(false);
         }
+        else
+        {
+            Debug.LogWarning("Player Inventory is null!");
+        }
     }
 
 }

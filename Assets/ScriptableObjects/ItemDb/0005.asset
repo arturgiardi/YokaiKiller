@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -12,8 +13,8 @@ MonoBehaviour:
   m_Name: 0005
   m_EditorClassIdentifier: 
   id: 5
-  iName: Chama Espiritual
-  iDesc: Aumenta a quantidade de almas absorvidas ao eliminar inimigos em 10%.
+  iName: Spirit Flame
+  iDesc: Increases the amount of souls absorbed from defeated enemies by 10%.
   iType: 3
   iIconID: 0
   iIcon: {fileID: 0}

@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -12,8 +13,8 @@ MonoBehaviour:
   m_Name: 0004
   m_EditorClassIdentifier: 
   id: 4
-  iName: Lente das Almas
-  iDesc: Permite visualizar a vitalidade dos inimigos
+  iName: Soul Lens
+  iDesc: Allows you to visualize the vitality of enemies.
   iType: 3
   iIconID: 20
   iIcon: {fileID: 0}

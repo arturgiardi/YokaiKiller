@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -13,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   iName: Akaiitou
-  iDesc: "Possui um brilho vermelho e emite um calor pr\xF3prio"
+  iDesc: Katana that possesses a crimson glow and emits a heat all its own.
   iType: 2
   iIconID: 19
   iIcon: {fileID: 21300038, guid: 02b2409afaf6f484babaf570b03870ed, type: 3}

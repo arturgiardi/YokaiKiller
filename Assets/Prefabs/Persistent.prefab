@@ -20296,6 +20296,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5373714c88dd2e046b75e87d00947ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <HpButton>k__BackingField: {fileID: 114568355546638192}
+  <PowerButton>k__BackingField: {fileID: 114442252303232932}
+  <LuckButton>k__BackingField: {fileID: 114219564025211522}
   powVal: {fileID: 8669464102476421472}
   powComp: {fileID: 4834070829642509028}
   powRes: {fileID: 3165790555171081120}

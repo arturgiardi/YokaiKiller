@@ -57,7 +57,7 @@ public class PlayerStats : Stats
 	{
 
 		DamageInfo finalDamageInfo = Stats.CalculateDamage(damage, defense, attacker, this);
-		float finalDamage = finalDamageInfo.ammount;
+		int finalDamage = finalDamageInfo.ammount;
 
 		#if UNITY_EDITOR
 			Debug.Log("<color=green><b>Player</b></color> took <color=brown><b>" + finalDamage + "</b></color> damage from <color=brown><b>" + instigator.name +"</b></color>");
@@ -91,7 +91,6 @@ public class PlayerStats : Stats
 		}
 
 		currentHealth -= finalDamage;
-		currentHealth = (float)(System.Math.Round((double)currentHealth, 1));	
 
 		if(OnChangeHP != null)
 		{
@@ -188,13 +187,11 @@ public class PlayerStats : Stats
 			OnEarnXP(0, GetPercentageXpToNextLevel());
 	}
 
-	public void Heal(float ammount)
+	public void Heal(int ammount)
 	{
 		currentHealth += ammount;
 		if(currentHealth > maxHealth)
 			currentHealth = maxHealth;
-
-		currentHealth = (float)(System.Math.Round((double)currentHealth, 1));		
 
 		if(OnChangeHP != null)
 		{

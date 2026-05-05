@@ -9,7 +9,7 @@ public class HealthIncrease : MonoBehaviour
 	int uniqueID = -1;
 
 	[SerializeField]
-	private float ammount;
+	private int ammount;
 
 	[SerializeField]
 	private GameObject toDisable;

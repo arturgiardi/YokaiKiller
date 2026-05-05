@@ -7,8 +7,8 @@ public class DamageInfo : ScriptableObject
 {
 	//public delegate float DamageFormula(DefenseInfo defense);
 	//public DamageFormula CalculateDamage;
-	public float ammount;
-	public float power;
+	public int ammount;
+	public int power;
 	public float positiveVariation = 0;
 	public float negativeVariation = 0;
 	public float intensity;
@@ -21,9 +21,9 @@ public class DamageInfo : ScriptableObject
 	public bool critical;
 	public bool charged = false;
 
-	public float healthPlus;
+	public int healthPlus;
 
-	public DamageInfo (float _ammount = 0, float _positiveVariation = 0, float _negativeVariation = 0,
+	public DamageInfo (int _ammount = 0, float _positiveVariation = 0, float _negativeVariation = 0,
 		float _intensity = 2f, float _contactTime = 0.1f, Vector3 _origin = default(Vector3),
 		GameObject _instigator = default(GameObject), GameObject _hitEffect = default(GameObject),
 		float _criticalMultiplier = 1.5f, bool _critical = false)
@@ -47,10 +47,7 @@ public class DamageInfo : ScriptableObject
 		if(input.charged)
 			finalDamage *= input.chargedMultiplier;
 
-		//finalDamage = (float)(System.Math.Round((double)finalDamage, 1));	
-		finalDamage = Mathf.RoundToInt(finalDamage);
-
-		returnInfo.ammount = finalDamage;
+		returnInfo.ammount = Mathf.RoundToInt(finalDamage);
 
 		return returnInfo;
 	}
@@ -71,10 +68,10 @@ public class DamageInfo : ScriptableObject
 	{
 		DamageInfo returnInfo = Object.Instantiate(input) as DamageInfo;
 		float armorReduction = defense.armor;
-		returnInfo.ammount -= armorReduction;
+		returnInfo.ammount -= Mathf.RoundToInt(armorReduction);
 		if(returnInfo.critical)
 		{
-			returnInfo.ammount *= returnInfo.criticalMultiplier;
+			returnInfo.ammount *= Mathf.RoundToInt(returnInfo.criticalMultiplier);
 		}
 		returnInfo.ammount = returnInfo.ammount < 1 ? 1 : returnInfo.ammount;
 		returnInfo.ammount = Mathf.RoundToInt(returnInfo.ammount);

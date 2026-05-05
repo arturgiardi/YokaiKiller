@@ -21,7 +21,7 @@ public class Projectile : MonoBehaviour
 	{
 		if(moving)
 		{
-			transform.forward = rb.velocity;
+			transform.forward = rb.linearVelocity;
 			Collider[] detected = new Collider[0];
 			detected = Physics.OverlapBox(transform.position, new Vector3(0.12f, 0.12f, 0.12f), Quaternion.identity, detectionLayerMask);
 			if(detected.Length > 0)

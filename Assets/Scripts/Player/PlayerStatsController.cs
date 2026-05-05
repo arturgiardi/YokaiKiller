@@ -23,8 +23,8 @@ public class PlayerSaveData
 	public int artifactSlot8 = -1;
 	public int level;
 	public float exp;
-	public float maxHealth;
-	public float power;
+	public int maxHealth;
+	public int power;
 	public float atckMult;
 	public float hAtckMult;
 	public float critChan;
@@ -608,14 +608,16 @@ public class PlayerStatsController : MonoBehaviour
 
 	public void OnGetLevel(int level)
 	{
-		baseStats.damage.power += 0.5f;
+		baseStats.damage.power += 1;
 		baseStats.damage.criticalChance += 0;
 		baseStats.maxHealth += 2;	
 		baseStats.currentHealth += 2;
 		GetCurrentStats();
 		levelUpFX.Play();
 		aPlayer.PlayAudio(levelUpSFX);
-		TextPopup.InstantiateText("EVOLUIU!", GameManager.instance.controller.transform.position + GameManager.instance.controller.GetComponent<CharacterController>().center);
+		TextPopup.InstantiateText("Level Up!", 
+			GameManager.instance.controller.transform.position + 
+			GameManager.instance.controller.GetComponent<CharacterController>().center);
 		GameManager.instance.SwitchLevelUp(true);
 
 	}
@@ -629,7 +631,7 @@ public class PlayerStatsController : MonoBehaviour
 				baseStats.currentHealth += 3;
 			break;
 			case "power":
-				baseStats.damage.power += 0.15f;
+				baseStats.damage.power += 1;
 			break;
 			case "luck":
 				baseStats.damage.criticalChance += 1f;

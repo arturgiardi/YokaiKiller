@@ -225,7 +225,7 @@ public class StateController : MonoBehaviour
 			//animator.Play("Damage",1,0);
 
 			DamageInfo finalDamageInfo = Stats.CalculateDamage(damage, stats.defense, attacker, stats);
-			float finalDamage = finalDamageInfo.ammount;
+			int finalDamage = finalDamageInfo.ammount;
 
 			if (finalDamage > 0)
 			{

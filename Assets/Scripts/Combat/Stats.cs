@@ -10,8 +10,8 @@ public abstract class Stats : ScriptableObject
 	[HideInInspector] public bool alive = true;
 	public int level = 1;
 	public float experience = 0;
-    public float maxHealth;
-    [HideInInspector] public float currentHealth;
+    public int maxHealth;
+    [HideInInspector] public int currentHealth;
 
 	//Event Triggered on death
 	public delegate void OnDeathEvent(GameObject instigator, DamageInfo damage, Stats attacker);

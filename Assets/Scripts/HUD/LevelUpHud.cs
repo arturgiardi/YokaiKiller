@@ -3,9 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;// Required when using Event data.
 using TMPro;
+using UnityEngine.UI;
+using UnityEngine.Events;
+using System;
 
 public class LevelUpHud : MonoBehaviour 
 {
+	[field: SerializeField] public Button HpButton {get; private set;}
+	[field: SerializeField] public Button PowerButton {get; private set;}
+	[field: SerializeField] public Button LuckButton {get; private set;}
 	public TMP_Text powVal, powComp, powRes;
 	public TMP_Text hpVal, hpComp, hpRes;
 	public TMP_Text lukVal, lukComp, lukRes;
@@ -14,7 +20,19 @@ public class LevelUpHud : MonoBehaviour
 	float curHp;
 	float curLuk;
 
-	public void SetValuesUp(PlayerStats stats)
+	private void Start() 
+	{
+		HpButton.onClick.AddListener(delegate { GetLevelBonus("health"); });
+		PowerButton.onClick.AddListener(delegate { GetLevelBonus("power"); });
+		LuckButton.onClick.AddListener(delegate { GetLevelBonus("luck"); });
+	}
+
+    private void GetLevelBonus(string value)
+    {
+        PlayerStatsController.instance.GetLevelBonus(value);
+    }
+
+    public void SetValuesUp(PlayerStats stats)
 	{
 		curPow = stats.damage.power;
 		curHp = stats.maxHealth;
@@ -34,7 +52,7 @@ public class LevelUpHud : MonoBehaviour
 				hpComp.text = "=";
 				lukComp.text = "=";
 
-				powRes.text = "<color=green>"+(curPow+0.15f).ToString();
+				powRes.text = "<color=green>"+(curPow+1).ToString();
 				hpRes.text = (curHp).ToString();
 				lukRes.text = string.Format("{0:F1}", curLuk/10);
 			break;

@@ -7,7 +7,7 @@ public class HealthRecover : MonoBehaviour {
     GameObject pickupClip;
 
 	[SerializeField]
-	private float ammount;
+	private int ammount;
 
 	[SerializeField]
 	private GameObject toDisable;

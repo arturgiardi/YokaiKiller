@@ -194,7 +194,6 @@ public class StateController : MonoBehaviour
 
 	public void FireProjectile(Object atkData)
 	{
-		Debug.Log(atkData);
 		ProjectileData newData = atkData as ProjectileData;
 		GameObject newProjectile = Instantiate(newData.projectile, rangedPoint.position, Quaternion.identity) as GameObject;
 		newProjectile.transform.forward = rangedPoint.forward;

@@ -64,13 +64,6 @@ public class PlayerStats : Stats
 			OnDeath(instigator,damage,attacker);
 		}
 
-		else
-		{
-			#if UNITY_EDITOR
-				Debug.Log("<color=green><b>Player</b></color> has <color=green><b>" + currentHealth + "</b></color> health left!");
-			#endif
-		}
-
 		if(finalDamageInfo.ammount > 0)
 		{
 			if(finalDamageInfo.critical)

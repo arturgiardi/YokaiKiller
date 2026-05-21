@@ -583,7 +583,6 @@ public class NewController : MonoBehaviour
 		attackState = AttackState.None;
 		jumpState = JumpState.None;
 		//animator.SetTrigger("Death");
-		Debug.Log("Died to: " + instigator.name);
 		//GetComponent<CharacterController> ().enabled = false;
 	}
 	public void Revive()

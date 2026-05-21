@@ -26537,7 +26537,7 @@ MonoBehaviour:
   GameMenuFirstOption: {fileID: 0}
   itemDB: {fileID: 11400000, guid: 3103e24692cd28e4a92372ad6d9d8dcc, type: 2}
   itemValidator: {fileID: 114889401385889114}
-  interactionManager: {fileID: 0}
+  interactionManager: {fileID: 5063284767745435099}
   bossHp: {fileID: 114861112394578646}
   endGameAnimator: {fileID: 95791013489765146}
   ltPressed: 0
@@ -46047,5 +46047,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9812b1ecc285ae74e9fb5c0361cae2f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5063284767745435099 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8228250869689445478, guid: c730553aa74788841a4b82dbba523a18,
+    type: 3}
+  m_PrefabInstance: {fileID: 3779918912456460733}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d79b0323e63e7074b9cf7f698f3eda7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

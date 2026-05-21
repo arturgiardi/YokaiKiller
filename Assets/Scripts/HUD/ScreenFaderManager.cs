@@ -30,7 +30,6 @@ public class ScreenFaderManager: MonoBehaviour {
 	public bool ScreenFadeIn()
     {
         anim.SetTrigger("FadeIn");
-        Debug.Log("FadeIn");
 
         if (screenFaderImage.color.a == 0)
             return true;
@@ -55,6 +54,5 @@ public class ScreenFaderManager: MonoBehaviour {
     public void ScreenOut()
     {
         anim.SetTrigger("Out");
-        Debug.Log("Out");
     }
 }

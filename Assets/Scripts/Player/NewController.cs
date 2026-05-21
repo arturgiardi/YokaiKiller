@@ -1,9 +1,8 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Homebrew;
 
-public class NewController : MonoBehaviour 
+public class NewController : MonoBehaviour
 {
 	#region Combo Setups
 
@@ -13,55 +12,55 @@ public class NewController : MonoBehaviour
 	[SerializeField] ComboSetup crouchingComboSequence;
 	[SerializeField] ComboSetup powerAttacks;
 
-    #endregion
+	#endregion
 
-    #region Enums
+	#region Enums
 
-    public enum AttackState {WantToAttack, WantToAttackSub, WillAttack, AttackBlocked, None, Attacking, ChainAttack};
-    public enum JumpState {WantToJump, Jumping, None, JumpLocked, NoGravity};
-    public enum DodgeState {WantToDodge, Dodging, None, DodgeLocked, Attacking};
-	public enum MoveState {Enabled, Attacking, Damage, Dodging, Blocked};
-	public enum ComboState {Grounded, Air, AirMoving, Crouching};
-	enum ControllerState {Enabled, Disabled, Waiting, Death};
-	enum AttackType {Normal, Super};
-	enum DodgeStyle {OnlyGrounded, OnAir};
+	public enum AttackState { WantToAttack, WantToAttackSub, WillAttack, AttackBlocked, None, Attacking, ChainAttack };
+	public enum JumpState { WantToJump, Jumping, None, JumpLocked, NoGravity };
+	public enum DodgeState { WantToDodge, Dodging, None, DodgeLocked, Attacking };
+	public enum MoveState { Enabled, Attacking, Damage, Dodging, Blocked };
+	public enum ComboState { Grounded, Air, AirMoving, Crouching };
+	enum ControllerState { Enabled, Disabled, Waiting, Death };
+	enum AttackType { Normal, Super };
+	enum DodgeStyle { OnlyGrounded, OnAir };
 
-    public enum ControllerMoveState {Grounded, Air, AirMoving, Crouching};
+	public enum ControllerMoveState { Grounded, Air, AirMoving, Crouching };
 
 	#endregion
 
-    #region States
-	
-    [Foldout("States", true)]
-    [Header("Controller States")]
+	#region States
+
+	[Foldout("States", true)]
+	[Header("Controller States")]
 	[Space(10)]
 	[SerializeField] ControllerState controllerState = ControllerState.Enabled;
 	public MoveState moveState;
-    public DodgeState dodgeState = DodgeState.None;
-    public JumpState jumpState = JumpState.None;
-    public AttackState attackState = AttackState.None;
+	public DodgeState dodgeState = DodgeState.None;
+	public JumpState jumpState = JumpState.None;
+	public AttackState attackState = AttackState.None;
 
 	#endregion
 
-    //////////////////////////////////////////////////////////////////////////////////////
-    /////////////////////////////////Action Types/////////////////////////////////////////
-    //////////////////////////////////////////////////////////////////////////////////////
-    [Foldout("Actions", true)]
-    [Space(5)]
+	//////////////////////////////////////////////////////////////////////////////////////
+	/////////////////////////////////Action Types/////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////
+	[Foldout("Actions", true)]
+	[Space(5)]
 	[Header("Action Types")]
 	[Space(10)]
-	    
-    [SerializeField] AttackType attackType = AttackType.Normal;
+
+	[SerializeField] AttackType attackType = AttackType.Normal;
 	[SerializeField] DodgeStyle dodgeStyle = DodgeStyle.OnlyGrounded;
 
-    //////////////////////////////////////////////////////////////////////////////////////
-    //////////////////////////////Linked Refferences//////////////////////////////////////
-    //////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////Linked Refferences//////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////
 
-    [Foldout("Refferences", true)]
-    [Header("Linked Refferences")]
+	[Foldout("Refferences", true)]
+	[Header("Linked Refferences")]
 	[Space(10)]
-    [SerializeField] CharacterController body;
+	[SerializeField] CharacterController body;
 	public Animator animator;
 	[SerializeField] ParticleSystem chargingParticle;
 	//[SerializeField] ParticleSystem chargingParticleB;
@@ -80,35 +79,35 @@ public class NewController : MonoBehaviour
 	[SerializeField] SpriteRenderer chargedShadowRenderer;
 	[SerializeField] CreateShadow shadowCreator;
 	[SerializeField] Transform projectileInstantiatingPoint;
-	
+
 	public SimpleAudioPlayer aPlayer;
 
-    //////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////Preset Variables//////////////////////////////////////
-    //////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////Preset Variables//////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////
 
-    [Foldout("Presets", true)]
-    [Space(5)]
+	[Foldout("Presets", true)]
+	[Space(5)]
 	[Header("Preset Variables")]
 	[Space(10)]
-	
+
 	[SerializeField] private LayerMask groundMask;
-    [SerializeField] private float speed = 3.5f;
-    [SerializeField] private float jump = 5;
-    [SerializeField] private float gravity = 15;
+	[SerializeField] private float speed = 3.5f;
+	[SerializeField] private float jump = 5;
+	[SerializeField] private float gravity = 15;
 	[SerializeField] private float dodgeCD = 1;
 	[SerializeField] private float comboImpulse = 1f;
 	[SerializeField] private float comboImpulseDecreaseRating = 3f;
 	[SerializeField] private float dodgeImpulse = 3f;
 	[SerializeField] private float dodgeTime = 0.3f;
-    //[SerializeField] float chargeAttackTimer = 0;
+	//[SerializeField] float chargeAttackTimer = 0;
 
-    //////////////////////////////////////////////////////////////////////////////////////
-    /////////////////////////////////Intern Variables/////////////////////////////////////
-    //////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////
+	/////////////////////////////////Intern Variables/////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////
 
-    [Foldout("Internal", true)]
-    [Space(5)]
+	[Foldout("Internal", true)]
+	[Space(5)]
 	[Header("Intern Variables")]
 	[Space(10)]
 
@@ -124,12 +123,12 @@ public class NewController : MonoBehaviour
 
 	public float SpecialSpeed;
 
-    //////////////////////////////////////////////////////////////////////////////////////
-    /////////////////////////////////////Booleans/////////////////////////////////////////
-    //////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////
+	/////////////////////////////////////Booleans/////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////
 
-    [Foldout("Bools", true)]
-    [Space(5)]
+	[Foldout("Bools", true)]
+	[Space(5)]
 	[Header("Booleans")]
 	[Space(10)]
 
@@ -140,13 +139,13 @@ public class NewController : MonoBehaviour
 	//[SerializeField] bool dodging = false;
 	[SerializeField] bool grounded;
 	[SerializeField] public bool isCharged = false;
-    //[SerializeField] bool isChargingAttack = false;
+	//[SerializeField] bool isChargingAttack = false;
 
-    //////////////////////////////////////////////////////////////////////////////////////
-    /////////////////////////////////Sounds///////////////////////////////////////////////
-    //////////////////////////////////////////////////////////////////////////////////////
-    [Foldout("Sounds", true)]
-    [SerializeField] GameObject SwordSlashSfx;
+	//////////////////////////////////////////////////////////////////////////////////////
+	/////////////////////////////////Sounds///////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////
+	[Foldout("Sounds", true)]
+	[SerializeField] GameObject SwordSlashSfx;
 	[SerializeField] GameObject jumpSfx;
 	[SerializeField] GameObject landSfx;
 	[SerializeField] GameObject hurtSfx;
@@ -156,9 +155,9 @@ public class NewController : MonoBehaviour
 
 
 
-//////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////Coroutines////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////Coroutines////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////
 
 	private IEnumerator boostCoroutine;
 	private IEnumerator iFrameCoroutine;
@@ -166,21 +165,21 @@ public class NewController : MonoBehaviour
 	public IEnumerator attackCoroutine;
 	private IEnumerator dodgeCoroutine;
 	private IEnumerator chargingCoroutine;
-	
-//////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////Runtime Coroutines////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////
+
+	//////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////Runtime Coroutines////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////
 
 	void OnEnable()
-	{	
+	{
 		//PlayerStatus.Instance.OnDeath += Died;
 		//PlayerStatus.Instance.OnDamage += TookDamage;
 
 		PlayerStats.instance.OnDamage += TookDamage;
 		PlayerStats.instance.OnDeath += Death;
 		InputManager.OnPressX += AttackInputDown;
-        InputManager.OnPressY += SubweaponInputDown;
-        InputManager.OnReleaseX += AvaliatePowerAttack;
+		InputManager.OnPressY += SubweaponInputDown;
+		InputManager.OnReleaseX += AvaliatePowerAttack;
 		InputManager.OnPressA += JumpInputDown;
 		InputManager.OnReleaseA += JumpInputUp;
 		InputManager.OnPressRT += DodgeInputDown;
@@ -188,43 +187,43 @@ public class NewController : MonoBehaviour
 
 	void OnDisable()
 	{
-		if(PlayerStats.instance != null)
+		if (PlayerStats.instance != null)
 		{
 			PlayerStats.instance.OnDamage -= TookDamage;
 			PlayerStats.instance.OnDeath -= Death;
 		}
 		InputManager.OnPressX -= AttackInputDown;
-        InputManager.OnPressY -= SubweaponInputDown;
-        InputManager.OnReleaseX -= AvaliatePowerAttack;
+		InputManager.OnPressY -= SubweaponInputDown;
+		InputManager.OnReleaseX -= AvaliatePowerAttack;
 		InputManager.OnPressA -= JumpInputDown;
 		InputManager.OnPressRT -= DodgeInputDown;
 	}
 	void Update()
-    {
-		if(GameManager.gameState != GameState.Playing)
+	{
+		if (GameManager.gameState != GameState.Playing)
 			return;
 
-		if(isCharged)
+		if (isCharged)
 		{
 			chargedShadowRenderer.sprite = raikoRenderer.sprite;
 		}
 
-		if (Time.timeScale > 0) 
+		if (Time.timeScale > 0)
 		{
-			if (CheckGrounded()) 
+			if (CheckGrounded())
 			{
-				if (!grounded) 
+				if (!grounded)
 				{
-					if(moveState != MoveState.Blocked)
+					if (moveState != MoveState.Blocked)
 						moveState = MoveState.Enabled;
 
 					aPlayer.PlayAudio(landSfx);
 					landParticle.Play();
-					if(controllerState != ControllerState.Death)
+					if (controllerState != ControllerState.Death)
 					{
-						if(jumpState != JumpState.JumpLocked)
+						if (jumpState != JumpState.JumpLocked)
 							jumpState = JumpState.None;
-						if(attackState != AttackState.AttackBlocked)
+						if (attackState != AttackState.AttackBlocked)
 							attackState = AttackState.None;
 						dodgeCounter = 0;
 						animator.SetBool("Grounded", true);
@@ -235,40 +234,40 @@ public class NewController : MonoBehaviour
 						animator.Play("Death_2", 3);
 					}
 				}
-                else
-                {
-                    //if (jumpState == JumpState.Jumping)
-                        //jumpState = JumpState.None;
-                }
-                grounded = true;
+				else
+				{
+					//if (jumpState == JumpState.Jumping)
+					//jumpState = JumpState.None;
+				}
+				grounded = true;
 			}
-			else 
+			else
 			{
 				grounded = false;
 				animator.SetBool("Grounded", false);
 				jumpState = jumpState != JumpState.NoGravity ? JumpState.Jumping : jumpState;
 			}
-			if(jumpState != JumpState.NoGravity)
-				yInput -= gravity*Time.deltaTime*3.5f;
+			if (jumpState != JumpState.NoGravity)
+				yInput -= gravity * Time.deltaTime * 3.5f;
 			else
 				yInput = 0;
 		}
 		else
 			return;
-		if(yInput < -2.25f*3.5f)
-			yInput = -2.25f*3.5f;
+		if (yInput < -2.25f * 3.5f)
+			yInput = -2.25f * 3.5f;
 
 
 		if (moveState == MoveState.Enabled && controllerState != ControllerState.Death)
-        {
+		{
 
 			directionalInput = GetDirectionalInput();
-			if(directionalInput.x > 0)
+			if (directionalInput.x > 0)
 			{
-				transform.localScale = new Vector3(1,1,1);
-				if(attackCoroutine != null)
+				transform.localScale = new Vector3(1, 1, 1);
+				if (attackCoroutine != null)
 				{
-					if(grounded)
+					if (grounded)
 					{
 						StopCoroutine(attackCoroutine);
 						attackCoroutine = null;
@@ -278,10 +277,10 @@ public class NewController : MonoBehaviour
 			}
 			else if (directionalInput.x < 0)
 			{
-				transform.localScale = new Vector3(-1,1,1);
-				if(attackCoroutine != null)
+				transform.localScale = new Vector3(-1, 1, 1);
+				if (attackCoroutine != null)
 				{
-					if(grounded)
+					if (grounded)
 					{
 						StopCoroutine(attackCoroutine);
 						attackCoroutine = null;
@@ -290,7 +289,7 @@ public class NewController : MonoBehaviour
 				}
 			}
 			directionalInput.y = yInput;
-			if(InputManager.lAxis.y < -0.4f)
+			if (InputManager.lAxis.y < -0.4f)
 			{
 				animator.SetFloat("Crouch", 1);
 			}
@@ -298,51 +297,52 @@ public class NewController : MonoBehaviour
 			{
 				animator.SetFloat("Crouch", 0);
 			}
-        }
-		else{
+		}
+		else
+		{
 			directionalInput = new Vector3(0, yInput, 0);
 		}
 		directionalInput.x = directionalInput.x * speed;
-		body.Move((directionalInput + (moveBoast*speed)) * Time.deltaTime);
+		body.Move((directionalInput + (moveBoast * speed)) * Time.deltaTime);
 
 		moveBoast = Vector3.zero;
-		if(dodgeCounter > 0 && grounded)
+		if (dodgeCounter > 0 && grounded)
 			dodgeCounter -= Time.deltaTime;
 
-		
-		if(attackState == AttackState.WantToAttack)
+
+		if (attackState == AttackState.WantToAttack)
 		{
-			if(dodgeState != DodgeState.Dodging)
+			if (dodgeState != DodgeState.Dodging)
 			{
-				if(attackType == AttackType.Normal)
+				if (attackType == AttackType.Normal)
 				{
 					Attack();
 				}
 			}
 		}
-        else if (attackState == AttackState.WantToAttackSub)
-        {
-            if (dodgeState != DodgeState.Dodging)
-            {
-                if (attackType == AttackType.Normal)
-                {
-                    ComboInput();
-                    SubAttack();
-                }
-            }
-        }
-    }
-	void LateUpdate () 
+		else if (attackState == AttackState.WantToAttackSub)
+		{
+			if (dodgeState != DodgeState.Dodging)
+			{
+				if (attackType == AttackType.Normal)
+				{
+					ComboInput();
+					SubAttack();
+				}
+			}
+		}
+	}
+	void LateUpdate()
 	{
-		if(GameManager.gameState != GameState.Playing)
+		if (GameManager.gameState != GameState.Playing)
 			return;
 
-		if(!grounded)
+		if (!grounded)
 		{
 			animator.SetFloat("YSpeed", body.velocity.y);
-			if((body.collisionFlags & CollisionFlags.Above) != 0)
+			if ((body.collisionFlags & CollisionFlags.Above) != 0)
 			{
-				if(yInput > 0)
+				if (yInput > 0)
 					yInput = -0.2f;
 			}
 		}
@@ -352,51 +352,51 @@ public class NewController : MonoBehaviour
 		transform.position = new Vector3(transform.position.x, transform.position.y, 0.3f);
 
 		if (dodgeState == DodgeState.WantToDodge)
-        {
-            dodgeCounter = dodgeCD;
-            PlaySFX(dodgeSFX);
-            hitBox.SetActive(false);
-            if (grounded)
-                impulseParticles.Play(true);
-            attackState = AttackState.None;
-            if (InputManager.lAxis.x > InputManager.singleton.deadZone)//Direita
-            {
-                Dodge(dodgeImpulse * Vector3.right, comboImpulseDecreaseRating / 1.25f);
-                animator.SetBool("DodgingBackwards", false);
-            }
-            if (InputManager.lAxis.x < -InputManager.singleton.deadZone)//Esquerda
-            {
-                Dodge(dodgeImpulse * Vector3.left, comboImpulseDecreaseRating / 1.25f);
-                animator.SetBool("DodgingBackwards", false);
-            }
-            else if (InputManager.lAxis.x == 0) //Nenhumm
-            {
-                animator.SetBool("DodgingBackwards", true);
-                if (body.transform.localScale == new Vector3(-1, 1, 1))
-                {
-                    Dodge(dodgeImpulse * Vector3.right, comboImpulseDecreaseRating / 1.25f);
-                }
-                else
-                {
-                    Dodge(dodgeImpulse * Vector3.left, comboImpulseDecreaseRating / 1.25f);
-                }
-            }
-        }
-
-        if (attackState != AttackState.Attacking)
 		{
-			if(jumpState == JumpState.WantToJump && attackState == AttackState.None)
+			dodgeCounter = dodgeCD;
+			PlaySFX(dodgeSFX);
+			hitBox.SetActive(false);
+			if (grounded)
+				impulseParticles.Play(true);
+			attackState = AttackState.None;
+			if (InputManager.lAxis.x > InputManager.singleton.deadZone)//Direita
+			{
+				Dodge(dodgeImpulse * Vector3.right, comboImpulseDecreaseRating / 1.25f);
+				animator.SetBool("DodgingBackwards", false);
+			}
+			if (InputManager.lAxis.x < -InputManager.singleton.deadZone)//Esquerda
+			{
+				Dodge(dodgeImpulse * Vector3.left, comboImpulseDecreaseRating / 1.25f);
+				animator.SetBool("DodgingBackwards", false);
+			}
+			else if (InputManager.lAxis.x == 0) //Nenhumm
+			{
+				animator.SetBool("DodgingBackwards", true);
+				if (body.transform.localScale == new Vector3(-1, 1, 1))
+				{
+					Dodge(dodgeImpulse * Vector3.right, comboImpulseDecreaseRating / 1.25f);
+				}
+				else
+				{
+					Dodge(dodgeImpulse * Vector3.left, comboImpulseDecreaseRating / 1.25f);
+				}
+			}
+		}
+
+		if (attackState != AttackState.Attacking)
+		{
+			if (jumpState == JumpState.WantToJump && attackState == AttackState.None)
 			{
 				jumpParticle.Play();
 				aPlayer.PlayAudio(jumpSfx);
-				yInput = jump*3.5f;
-				if(moveState != MoveState.Blocked)
+				yInput = jump * 3.5f;
+				if (moveState != MoveState.Blocked)
 				{
 					//moveState = MoveState.Enabled;
 				}
 				comboChainCounter = 0;
 				animator.Play("No Combo", 1);
-				if(jumpState != JumpState.JumpLocked)
+				if (jumpState != JumpState.JumpLocked)
 				{
 					jumpState = JumpState.Jumping;
 				}
@@ -404,7 +404,7 @@ public class NewController : MonoBehaviour
 			}
 		}
 
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Raiko@DashBackward") && moveState==MoveState.Enabled)
+		if (animator.GetCurrentAnimatorStateInfo(0).IsName("Raiko@DashBackward") && moveState == MoveState.Enabled)
 		{
 			if (InputManager.lAxis.x > InputManager.singleton.deadZone)//Direita
 			{
@@ -412,17 +412,17 @@ public class NewController : MonoBehaviour
 				animator.Play("Raiko@DashForward", 0);
 			}
 			if (InputManager.lAxis.x < -InputManager.singleton.deadZone)//Esquerda
-			{             
+			{
 				//Dodge (dodgeImpulse * Vector3.left, comboImpulseDecreaseRating / 1.25f);
 				animator.Play("Raiko@DashForward", 0);
 			}
 		}
-		
-		if(Mathf.Abs(directionalInput.x) > 0)
+
+		if (Mathf.Abs(directionalInput.x) > 0)
 			animator.SetBool("Idle", false);
 		else
 			animator.SetBool("Idle", true);
-		
+
 	}
 
 	//////////////////////////////////////////////////////////////////////////////////
@@ -430,12 +430,12 @@ public class NewController : MonoBehaviour
 	//////////////////////////////////////////////////////////////////////////////////
 
 	void AttackInputDown()
-    {
-		if(GameManager.gameState != GameState.Playing || controllerState != ControllerState.Enabled)
+	{
+		if (GameManager.gameState != GameState.Playing || controllerState != ControllerState.Enabled)
 			return;
-        attackType = AttackType.Normal;
-		if(attackState == AttackState.None)
-       		attackState = AttackState.WantToAttack;
+		attackType = AttackType.Normal;
+		if (attackState == AttackState.None)
+			attackState = AttackState.WantToAttack;
 		else
 		{
 			if (attackInputDelay != null)
@@ -443,81 +443,82 @@ public class NewController : MonoBehaviour
 			attackInputDelay = _ChainCombo();
 			StartCoroutine(attackInputDelay);
 		}
-		if(PlayerStats.instance.skillFlags.havePowerAttack)
+		if (PlayerStats.instance.skillFlags.havePowerAttack)
 		{
-			if(chargingCoroutine != null)
+			if (chargingCoroutine != null)
 				StopCoroutine(chargingCoroutine);
 			chargingCoroutine = _ChargeUp();
 			StartCoroutine(chargingCoroutine);
 		}
-		
-    }
-    void SubweaponInputDown()
-    {
-        if (GameManager.gameState != GameState.Playing || controllerState != ControllerState.Enabled || !subweaponAvailable)
-            return;
-        attackType = AttackType.Normal;
-        if (attackState == AttackState.None)
-            attackState = AttackState.WantToAttackSub;
-        else
-        {
-            if (attackInputDelay != null)
-                StopCoroutine(attackInputDelay);
-            attackInputDelay = _ChainSub();
-            StartCoroutine(attackInputDelay);
-        }
-    }
-    void DodgeInputDown()
-    {
-		if(GameManager.gameState != GameState.Playing)
+
+	}
+	void SubweaponInputDown()
+	{
+		if (GameManager.gameState != GameState.Playing || controllerState != ControllerState.Enabled || !subweaponAvailable)
 			return;
-		if(controllerState != ControllerState.Enabled)
+		attackType = AttackType.Normal;
+		if (attackState == AttackState.None)
+			attackState = AttackState.WantToAttackSub;
+		else
+		{
+			if (attackInputDelay != null)
+				StopCoroutine(attackInputDelay);
+			attackInputDelay = _ChainSub();
+			StartCoroutine(attackInputDelay);
+		}
+	}
+	void DodgeInputDown()
+	{
+		if (GameManager.gameState != GameState.Playing)
+			return;
+		if (controllerState != ControllerState.Enabled)
 			return;
 
-		if(dodgeState == DodgeState.Attacking)
+		if (dodgeState == DodgeState.Attacking)
 		{
-			if(dodgeCoroutine == null)
+			if (dodgeCoroutine == null)
 			{
 				dodgeCoroutine = _DodgeWhileAttack();
 				StartCoroutine(dodgeCoroutine);
 			}
 		}
 
-		else  if (dodgeCounter <= 0) 
+		else if (dodgeCounter <= 0)
 		{
 			if (dodgeStyle == DodgeStyle.OnlyGrounded && grounded)
-        	{
-                dodgeState = DodgeState.WantToDodge;
-            }
-			else if(dodgeStyle == DodgeStyle.OnAir)
 			{
-           		dodgeState = DodgeState.WantToDodge;
+				dodgeState = DodgeState.WantToDodge;
 			}
-        }
-    }
+			else if (dodgeStyle == DodgeStyle.OnAir)
+			{
+				dodgeState = DodgeState.WantToDodge;
+			}
+		}
+	}
 	void DodgeInputUp()
-    {
-		if(GameManager.gameState != GameState.Playing)
+	{
+		if (GameManager.gameState != GameState.Playing)
 			return;
-		if(controllerState != ControllerState.Enabled)
+		if (controllerState != ControllerState.Enabled)
 			return;
-        
-		if(dodgeState == DodgeState.Dodging)
-		{	
+
+		if (dodgeState == DodgeState.Dodging)
+		{
 			//Interrupt Dodge here!!! <---------------
 		}
-    }
+	}
 	void JumpInputDown()
 	{
-		if(GameManager.gameState != GameState.Playing)
+		if (GameManager.gameState != GameState.Playing)
 			return;
-		if(controllerState != ControllerState.Enabled)
+		if (controllerState != ControllerState.Enabled)
 			return;
-		if(grounded && jumpState == JumpState.None){
-			if(InputManager.lAxis.y < -0.95f)
+		if (grounded && jumpState == JumpState.None)
+		{
+			if (InputManager.lAxis.y < -0.95f || Input.GetAxisRaw("Vertical") < -0.5f)
 			{
 				GameObject platform = DetectUnderPlatform();
-				if(platform != null)
+				if (platform != null)
 					StartCoroutine(_disablePlatform(platform));
 			}
 			else
@@ -526,40 +527,40 @@ public class NewController : MonoBehaviour
 	}
 	void JumpInputUp()
 	{
-		if(GameManager.gameState != GameState.Playing)
+		if (GameManager.gameState != GameState.Playing)
 			return;
-		if(controllerState != ControllerState.Enabled)
+		if (controllerState != ControllerState.Enabled)
 			return;
 		//if(!grounded)
 		//{
-			if(yInput > 0)
-				yInput /= 1.5f;
+		if (yInput > 0)
+			yInput /= 1.5f;
 		//}
 	}
 	Vector3 GetDirectionalInput()
 	{
 		Vector3 horizontalMovement = new Vector3(InputManager.lAxis.x, 0, 0);
-		if(horizontalMovement.x > 0.5f)
+		if (horizontalMovement.x > 0.5f)
 			horizontalMovement.x = 1;
-		else if(horizontalMovement.x < -0.5f)
+		else if (horizontalMovement.x < -0.5f)
 			horizontalMovement.x = -1;
 		else
 			horizontalMovement.x = 0;
 		//horizontalMovement = Vector3.ClampMagnitude(horizontalMovement, 1);
 		return horizontalMovement;
 	}
-    
+
 	//////////////////////////////////////////////////////////////////////////////////
 	////////////////////////////////Damage Events/////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////////////
- 	
+
 	void TakeHit(float damage)
 	{
-		if(iFrameCoroutine == null)
+		if (iFrameCoroutine == null)
 		{
 			iFrameCoroutine = _DisableHitbox(1f);
 			StartCoroutine(iFrameCoroutine);
-		}	
+		}
 	}
 	public void TookDamage(GameObject instigator, DamageInfo damage, Stats attacker)
 	{
@@ -567,15 +568,15 @@ public class NewController : MonoBehaviour
 		TakeHit(damage.ammount);
 	}
 	public void Death(GameObject instigator, DamageInfo damage, Stats attacker)
-    {
-		powerAttackChargedShadow.SetActive(false);	
+	{
+		powerAttackChargedShadow.SetActive(false);
 		chargingParticle.Stop(true);
 		chargingParticle.GetComponentInChildren<ParticleSystem>().Clear();
 		chargedParticle.Stop(true);
-		if(chargingCoroutine != null)
+		if (chargingCoroutine != null)
 			StopCoroutine(chargingCoroutine);
 		Time.timeScale = 0.3f;
-		yInput = jump/2;
+		yInput = jump / 2;
 		animator.Play("Death_1", 3);
 		alive = false;
 		controllerState = ControllerState.Death;
@@ -584,8 +585,9 @@ public class NewController : MonoBehaviour
 		//animator.SetTrigger("Death");
 		Debug.Log("Died to: " + instigator.name);
 		//GetComponent<CharacterController> ().enabled = false;
-    }
-	public void Revive(){
+	}
+	public void Revive()
+	{
 		alive = true;
 		controllerState = ControllerState.Enabled;
 		moveState = MoveState.Enabled;
@@ -595,10 +597,10 @@ public class NewController : MonoBehaviour
 		isCharged = false;
 		PlayerStatsController.instance.stats.damage.charged = false;
 		//isChargingAttack = false;
-		chargedParticle.Stop ();
-		chargingParticle.Stop ();
-		GetComponent<CharacterController> ().enabled = true;
-		RecoverInput ();
+		chargedParticle.Stop();
+		chargingParticle.Stop();
+		GetComponent<CharacterController>().enabled = true;
+		RecoverInput();
 		//RecoverCombo ();
 		hitBox.SetActive(true);
 		animator.Play("Null", 3);
@@ -613,31 +615,31 @@ public class NewController : MonoBehaviour
 	void ComboInput()
 	{
 		//aPlayer.PlayAudio(swingSFX);
-		if(grounded && moveState != MoveState.Blocked)
+		if (grounded && moveState != MoveState.Blocked)
 			moveState = MoveState.Attacking;
-		if(attackState != AttackState.AttackBlocked)
+		if (attackState != AttackState.AttackBlocked)
 			attackState = AttackState.WillAttack;
 	}
 	public void ComboOutput()
 	{
 		comboChainCounter = 0;
 		animator.Play("No Combo", 1);
-		
-		if(moveState == MoveState.Attacking)
+
+		if (moveState == MoveState.Attacking)
 			moveState = MoveState.Enabled;
-		if(attackState != AttackState.AttackBlocked)
+		if (attackState != AttackState.AttackBlocked)
 			attackState = AttackState.None;
 	}
 	void PickComboFromSequence(ComboSetup combo)
 	{
-		if(attackCoroutine != null)
+		if (attackCoroutine != null)
 			StopCoroutine(attackCoroutine);
 		// if somehow the chain overflow the sequence, we reset the sequence
-		if(comboChainCounter >= combo.sequence.Length)
+		if (comboChainCounter >= combo.sequence.Length)
 			comboChainCounter = 0;
 		attackCoroutine = _Combo(combo.sequence[comboChainCounter]);
 		StartCoroutine(attackCoroutine);
-		if(comboChainCounter+1 >= combo.sequence.Length)
+		if (comboChainCounter + 1 >= combo.sequence.Length)
 			comboChainCounter = 0;
 		else
 			comboChainCounter++;
@@ -646,22 +648,28 @@ public class NewController : MonoBehaviour
 	//////////////////////////////////////////////////////////////////////////////////
 	////////////////////////////////Ground Methods////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////////////
-	public bool CheckGrounded(){
-		if (Physics.SphereCast (new Ray (transform.position + body.center, Vector3.down), body.radius, (body.height / 2) - (body.radius*1f) + (body.radius-0.1f), groundMask)) {
+	public bool CheckGrounded()
+	{
+		if (Physics.SphereCast(new Ray(transform.position + body.center, Vector3.down), body.radius, (body.height / 2) - (body.radius * 1f) + (body.radius - 0.1f), groundMask))
+		{
 			return true;
-		} 
-		else {
+		}
+		else
+		{
 			airTime += Time.deltaTime;
 			return false;
 		}
 
 	}
-	float groundDistance(){
-		RaycastHit hit = new RaycastHit ();
-		if (Physics.SphereCast (new Ray (transform.position + body.center, Vector3.down), body.radius - 0.02f, out hit, 5, groundMask)) {
+	float groundDistance()
+	{
+		RaycastHit hit = new RaycastHit();
+		if (Physics.SphereCast(new Ray(transform.position + body.center, Vector3.down), body.radius - 0.02f, out hit, 5, groundMask))
+		{
 			return hit.distance;
 		}
-		else{
+		else
+		{
 			return 5;
 		}
 	}
@@ -670,16 +678,20 @@ public class NewController : MonoBehaviour
 	////////////////////////////////External Methods//////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////////////
 
-	public void BlockInput(){
-		
+	public void BlockInput()
+	{
+
 	}
-	public void RecoverInput(){
-		
+	public void RecoverInput()
+	{
+
 	}
-	void BlockAttack(){
+	void BlockAttack()
+	{
 		attackState = AttackState.AttackBlocked;
 	}
-	public void RecoverAttack(){
+	public void RecoverAttack()
+	{
 		attackState = AttackState.None;
 	}
 
@@ -689,13 +701,13 @@ public class NewController : MonoBehaviour
 
 	void MoveBoast(Vector3 impulse, float decreaseRating)
 	{
-		if(boostCoroutine != null)
+		if (boostCoroutine != null)
 			StopCoroutine(boostCoroutine);
 		StartCoroutine(_MoveBoast(impulse, decreaseRating));
 	}
 	void Dodge(Vector3 impulse, float decreaseRating)
 	{
-		if(DodgeReactor.OnDodgeStart != null)
+		if (DodgeReactor.OnDodgeStart != null)
 			DodgeReactor.OnDodgeStart();
 		aPlayer.PlayAudio(dodgeSFX);
 		dodgeState = DodgeState.Dodging;
@@ -708,31 +720,33 @@ public class NewController : MonoBehaviour
 	{
 		//dodging = true;
 		float shadowTimer = 0;
-		while(impulse.magnitude > 0.5f){
-			while(GameManager.gameState != GameState.Playing || Time.timeScale == 0)
+		while (impulse.magnitude > 0.5f)
+		{
+			while (GameManager.gameState != GameState.Playing || Time.timeScale == 0)
 			{
 				yield return null;
 			}
-			shadowTimer += 5*Time.deltaTime;
-			if(shadowTimer >= 0.4f/impulse.magnitude){
+			shadowTimer += 5 * Time.deltaTime;
+			if (shadowTimer >= 0.4f / impulse.magnitude)
+			{
 				//shadowCreator.InstantiateShadow(this.transform);
 				shadowTimer = 0;
 			}
 
 			//directionalInput.y = directionalInput.y / 2;
 			directionalInput.x = 0;
-			hitBox.SetActive (false);
-			impulse = Vector3.Lerp(impulse, Vector3.zero, decreaseRating*Time.deltaTime);
+			hitBox.SetActive(false);
+			impulse = Vector3.Lerp(impulse, Vector3.zero, decreaseRating * Time.deltaTime);
 			moveBoast += impulse;
 			yield return null;
 		}
-	    if (animator.GetBool("Dodging"))
-        {
+		if (animator.GetBool("Dodging"))
+		{
 			//animator.SetBool("Dodging", false);
-            //print("SIT1");
+			//print("SIT1");
 		}
-		if(alive && iFrameCoroutine == null)
-			hitBox.SetActive (true);
+		if (alive && iFrameCoroutine == null)
+			hitBox.SetActive(true);
 		//dodging = false;
 
 	}
@@ -741,114 +755,129 @@ public class NewController : MonoBehaviour
 	{
 		float startDodgeTime = dodgeTime;
 		//dodging = true;
-		animator.SetBool ("Dodging", true);
+		animator.SetBool("Dodging", true);
 		animator.Play("No Combo", 1);
 		animator.SetBool("Null", true);
 		float shadowTimer = 0;
-		while(dodgeTime > 0.0f){
-			while(GameManager.gameState != GameState.Playing || Time.timeScale == 0)
+		while (dodgeTime > 0.0f)
+		{
+			while (GameManager.gameState != GameState.Playing || Time.timeScale == 0)
 			{
 				yield return null;
 			}
-			if(shadowTimer >= 0.3f && dodgeTime < startDodgeTime-0.06f){
+			if (shadowTimer >= 0.3f && dodgeTime < startDodgeTime - 0.06f)
+			{
 				shadowCreator.InstantiateShadow(this.transform, raikoRenderer.sprite);
 				shadowTimer = 0;
 			}
-			shadowTimer += 8*Time.deltaTime;
+			shadowTimer += 8 * Time.deltaTime;
 			directionalInput.x = 0;
-			hitBox.SetActive (false);
+			hitBox.SetActive(false);
 			moveBoast += impulse;
 			dodgeTime -= Time.deltaTime;
 			yield return null;
 		}
-		while(!CheckGrounded())
+		while (!CheckGrounded())
 		{
 			speed = 4.5f;
-			if(dodgeState != DodgeState.DodgeLocked)
+			if (dodgeState != DodgeState.DodgeLocked)
 			{
 				dodgeState = DodgeState.None;
 				//animator.SetBool("Dodging", false);
-			}	
+			}
 			yield return null;
-			if(moveState == MoveState.Dodging)
+			if (moveState == MoveState.Dodging)
 				moveState = MoveState.Enabled;
 		}
 		//dodging = false;
 		speed = 3.5f;
-        if (animator.GetBool("Dodging"))
-        {
-            animator.SetBool("Null", true);
-            if (animator.GetBool("Null"))
-            {
-                ComboOutput();
-            }
-            animator.SetBool("Dodging", false);
+		if (animator.GetBool("Dodging"))
+		{
+			animator.SetBool("Null", true);
+			if (animator.GetBool("Null"))
+			{
+				ComboOutput();
+			}
+			animator.SetBool("Dodging", false);
 
-        }
-        else
-        {
-            ComboOutput();
-        }
-		if(alive && iFrameCoroutine == null)
-			hitBox.SetActive (true);
-		
-		if(DodgeReactor.OnDodgeEnd != null)
+		}
+		else
+		{
+			ComboOutput();
+		}
+		if (alive && iFrameCoroutine == null)
+			hitBox.SetActive(true);
+
+		if (DodgeReactor.OnDodgeEnd != null)
 			DodgeReactor.OnDodgeEnd();
 
-		if(dodgeState != DodgeState.DodgeLocked)
+		if (dodgeState != DodgeState.DodgeLocked)
 			dodgeState = DodgeState.None;
-		if(moveState == MoveState.Dodging)
+		if (moveState == MoveState.Dodging)
 			moveState = MoveState.Enabled;
-	}	
+	}
 
 
 
-	public void PlaySFX(GameObject sfx){
+	public void PlaySFX(GameObject sfx)
+	{
 		//sfxPlayer.PlaySoundFX(sfx, transform.position+body.center);
 	}
 
-	GameObject DetectUnderPlatform(){
+	GameObject DetectUnderPlatform()
+	{
 		Vector3 rayCastPoint = transform.position + body.center;
-		Ray ray = new Ray (rayCastPoint, Vector3.down);
-		RaycastHit hit = new RaycastHit ();
-		if (Physics.Raycast (ray, out hit, body.height + 0.3f, 1<<20)) {
-			if(hit.transform.tag == "Platform")
+		Ray ray = new Ray(rayCastPoint, Vector3.down);
+		RaycastHit hit = new RaycastHit();
+		if (Physics.Raycast(ray, out hit, body.height + 0.3f, 1 << 20))
+		{
+			Debug.Log("Raycast hit: " + hit.transform.name);
+			if (hit.transform.tag == "Platform")
+			{
+				Debug.Log("Platform detected: " + hit.transform.name);
 				return hit.transform.gameObject;
-		} 
+			}
+		}
 
 		rayCastPoint.x += body.radius;
 
 		ray.origin = rayCastPoint;
 
-		if (Physics.Raycast (ray, out hit, body.height + 0.3f, 1<<20)) {
-			if(hit.transform.tag == "Platform")
+		if (Physics.Raycast(ray, out hit, body.height + 0.3f, 1 << 20))
+		{
+			if (hit.transform.tag == "Platform")
 				return hit.transform.gameObject;
-		} 
+		}
 
-		rayCastPoint.x -= body.radius*2;
+		rayCastPoint.x -= body.radius * 2;
 
 		ray.origin = rayCastPoint;
 
-		if (Physics.Raycast (ray, out hit, body.height + 0.3f, 1<<20)) {
-			if(hit.transform.tag == "Platform")
+		if (Physics.Raycast(ray, out hit, body.height + 0.3f, 1 << 20))
+		{
+			if (hit.transform.tag == "Platform")
 				return hit.transform.gameObject;
-		} 
+		}
 
-		else {
+		else
+		{
 			return null;
 		}
 		return null;
 	}
 
-	public void EnablePowerAttack(){
+	public void EnablePowerAttack()
+	{
 		PlayerStats.instance.skillFlags.havePowerAttack = true;
 	}
-	public void DissablePowerAttack(){
+	public void DissablePowerAttack()
+	{
 		PlayerStats.instance.skillFlags.havePowerAttack = false;
 	}
-	public void interruptPowerAttack(){
-		chargingParticle.Stop ();
-		chargedParticle.Stop ();
+	public void interruptPowerAttack()
+	{
+		chargingParticle.Stop();
+		chargedParticle.Stop();
 		isCharged = false;
 		chargingSound.Stop();
 		PlayerStatsController.instance.stats.damage.charged = false;
@@ -856,20 +885,22 @@ public class NewController : MonoBehaviour
 		powerAttackChargedShadow.SetActive(false);
 	}
 
-	public void DisableController(){
+	public void DisableController()
+	{
 		controllerState = ControllerState.Disabled;
-		interruptPowerAttack ();
+		interruptPowerAttack();
 	}
-	public void EnableController(){
+	public void EnableController()
+	{
 		controllerState = ControllerState.Enabled;
 	}
 
-    void Attack()
-    {
+	void Attack()
+	{
 		chargingSound.Stop();
 		isCharged = false;
 		PlayerStatsController.instance.stats.damage.charged = false;
-		if(InputManager.lAxis.y < -0.95f && grounded && jumpState != JumpState.Jumping)
+		if (InputManager.lAxis.y < -0.95f && grounded && jumpState != JumpState.Jumping)
 		{
 			PickComboFromSequence(crouchingComboSequence);
 		}
@@ -877,87 +908,87 @@ public class NewController : MonoBehaviour
 		{
 			if (InputManager.lAxis.x > InputManager.singleton.deadZone)
 			{
-				MoveBoast(Vector3.right * comboImpulse*1.5f, comboImpulseDecreaseRating); 
+				MoveBoast(Vector3.right * comboImpulse * 1.5f, comboImpulseDecreaseRating);
 				body.transform.localScale = new Vector3(1, 1, 1);
 				impulseParticles.Play();
 			}
 			else if (InputManager.lAxis.x < -InputManager.singleton.deadZone)
 			{
-				MoveBoast(Vector3.left * comboImpulse*1.5f, comboImpulseDecreaseRating); 
+				MoveBoast(Vector3.left * comboImpulse * 1.5f, comboImpulseDecreaseRating);
 				body.transform.localScale = new Vector3(-1, 1, 1);
-				impulseParticles.Play();	
+				impulseParticles.Play();
 			}
-			if(dodgeState != DodgeState.DodgeLocked)
+			if (dodgeState != DodgeState.DodgeLocked)
 				dodgeState = DodgeState.Attacking;
 			PickComboFromSequence(groundedComboSequence);
-				
+
 		}
 		else
 		{
 			// Air attack here <-------------------------------
-			if(body.velocity.x != 0)
+			if (body.velocity.x != 0)
 				PickComboFromSequence(airComboSequenceMoving);
 			else
 				PickComboFromSequence(airComboSequence);
 		}
-    }
+	}
 
-    void SubAttack()
-    {
-		if(!subweaponAvailable)
+	void SubAttack()
+	{
+		if (!subweaponAvailable)
 			return;
 
 		StartCoroutine(_SubCooldown(PlayerStatsController.instance.currentSubweapon.cooldownTime));
 
-        chargingSound.Stop();
-        isCharged = false;
-        PlayerStatsController.instance.stats.damage.charged = false;
+		chargingSound.Stop();
+		isCharged = false;
+		PlayerStatsController.instance.stats.damage.charged = false;
 
 		//Call subweapon Crouching
-        if (InputManager.lAxis.y < -0.95f && grounded && jumpState != JumpState.Jumping)
-        {
-           PlayerStatsController.instance.currentSubweapon.EvaluateCombo(this, ()=>ComboOutput(), ComboState.Crouching);
-        }
+		if (InputManager.lAxis.y < -0.95f && grounded && jumpState != JumpState.Jumping)
+		{
+			PlayerStatsController.instance.currentSubweapon.EvaluateCombo(this, () => ComboOutput(), ComboState.Crouching);
+		}
 		//Call subweapon grounded
-        else if (grounded && jumpState != JumpState.Jumping)
-        {
-            if (InputManager.lAxis.x > InputManager.singleton.deadZone)
-            {
-                MoveBoast(Vector3.right * comboImpulse * 1.5f, comboImpulseDecreaseRating);
-                body.transform.localScale = new Vector3(1, 1, 1);
-                impulseParticles.Play();
-                PlayerStatsController.instance.currentSubweapon.EvaluateCombo(this, () => ComboOutput(), ComboState.Grounded);
-            }
-            else if (InputManager.lAxis.x < -InputManager.singleton.deadZone)
-            {
-                MoveBoast(Vector3.left * comboImpulse * 1.5f, comboImpulseDecreaseRating);
-                body.transform.localScale = new Vector3(-1, 1, 1);
-                impulseParticles.Play();
-                PlayerStatsController.instance.currentSubweapon.EvaluateCombo(this, () => ComboOutput(), ComboState.Grounded);
-            }
-            else
-            {
-                PlayerStatsController.instance.currentSubweapon.EvaluateCombo(this, () => ComboOutput(), ComboState.Grounded);
-            }
-            if (dodgeState != DodgeState.DodgeLocked)
-                dodgeState = DodgeState.Attacking;
-        }
+		else if (grounded && jumpState != JumpState.Jumping)
+		{
+			if (InputManager.lAxis.x > InputManager.singleton.deadZone)
+			{
+				MoveBoast(Vector3.right * comboImpulse * 1.5f, comboImpulseDecreaseRating);
+				body.transform.localScale = new Vector3(1, 1, 1);
+				impulseParticles.Play();
+				PlayerStatsController.instance.currentSubweapon.EvaluateCombo(this, () => ComboOutput(), ComboState.Grounded);
+			}
+			else if (InputManager.lAxis.x < -InputManager.singleton.deadZone)
+			{
+				MoveBoast(Vector3.left * comboImpulse * 1.5f, comboImpulseDecreaseRating);
+				body.transform.localScale = new Vector3(-1, 1, 1);
+				impulseParticles.Play();
+				PlayerStatsController.instance.currentSubweapon.EvaluateCombo(this, () => ComboOutput(), ComboState.Grounded);
+			}
+			else
+			{
+				PlayerStatsController.instance.currentSubweapon.EvaluateCombo(this, () => ComboOutput(), ComboState.Grounded);
+			}
+			if (dodgeState != DodgeState.DodgeLocked)
+				dodgeState = DodgeState.Attacking;
+		}
 		//Call subweapon air
-        else
-        {
-            // Air attack here <-------------------------------
-            if (body.velocity.x != 0)
-            {
-                //Call subweapon AirMoving
-                PlayerStatsController.instance.currentSubweapon.EvaluateCombo(this, () => ComboOutput(), ComboState.AirMoving);
-            }
-            else
-            {
-                //Call subweapon Air
-                PlayerStatsController.instance.currentSubweapon.EvaluateCombo(this, () => ComboOutput(), ComboState.Air);
-            }
-        }
-    }
+		else
+		{
+			// Air attack here <-------------------------------
+			if (body.velocity.x != 0)
+			{
+				//Call subweapon AirMoving
+				PlayerStatsController.instance.currentSubweapon.EvaluateCombo(this, () => ComboOutput(), ComboState.AirMoving);
+			}
+			else
+			{
+				//Call subweapon Air
+				PlayerStatsController.instance.currentSubweapon.EvaluateCombo(this, () => ComboOutput(), ComboState.Air);
+			}
+		}
+	}
 
 	void PowerAttack()
 	{
@@ -965,9 +996,9 @@ public class NewController : MonoBehaviour
 		isCharged = false;
 		PlayerStatsController.instance.stats.damage.charged = true;
 		powerAttackChargedShadow.SetActive(false);
-		if(attackCoroutine != null)
-				StopCoroutine(attackCoroutine);
-		if(InputManager.lAxis.y < -0.95f && grounded && jumpState != JumpState.Jumping)
+		if (attackCoroutine != null)
+			StopCoroutine(attackCoroutine);
+		if (InputManager.lAxis.y < -0.95f && grounded && jumpState != JumpState.Jumping)
 		{
 			attackCoroutine = _Combo(powerAttacks.sequence[0]);  //-> 0 = crouching power attack
 		}
@@ -976,63 +1007,63 @@ public class NewController : MonoBehaviour
 			//print("unleashing attack");
 			if (InputManager.lAxis.x > InputManager.singleton.deadZone)
 			{
-				MoveBoast(Vector3.right * comboImpulse*1.5f, comboImpulseDecreaseRating); 
+				MoveBoast(Vector3.right * comboImpulse * 1.5f, comboImpulseDecreaseRating);
 				body.transform.localScale = new Vector3(1, 1, 1);
 				impulseParticles.Play();
 			}
 			else if (InputManager.lAxis.x < -InputManager.singleton.deadZone)
 			{
-				MoveBoast(Vector3.left * comboImpulse*1.5f, comboImpulseDecreaseRating); 
+				MoveBoast(Vector3.left * comboImpulse * 1.5f, comboImpulseDecreaseRating);
 				body.transform.localScale = new Vector3(-1, 1, 1);
-				impulseParticles.Play();	
+				impulseParticles.Play();
 			}
-			if(dodgeState != DodgeState.DodgeLocked)
+			if (dodgeState != DodgeState.DodgeLocked)
 				dodgeState = DodgeState.Attacking;
 
 			attackCoroutine = _Combo(powerAttacks.sequence[1]); //-> 1 = grounded power attack
-				
+
 		}
 		else
 		{
 			// Air attack here <-------------------------------
 			//animator.SetTrigger("Attack");
 			//animator.SetBool("Null", false);
-			if(body.velocity.x != 0)
+			if (body.velocity.x != 0)
 				attackCoroutine = _Combo(powerAttacks.sequence[2]); //-> 2 = air power attack
 			else
 				attackCoroutine = _Combo(powerAttacks.sequence[3]); //-> 3 =  air power attack forward
 		}
 		StartCoroutine(attackCoroutine);
-    }
+	}
 
 
 	IEnumerator _SubCooldown(float totalTime)
 	{
 		float currentTime = 0;
 		subweaponAvailable = false;
-		while(currentTime < totalTime)
+		while (currentTime < totalTime)
 		{
 			HealthGuiManager.instance.SetSubweaponTimer(currentTime, totalTime);
 			currentTime += Time.deltaTime;
 			yield return null;
 		}
 		subweaponAvailable = true;
-		HealthGuiManager.instance.SetSubweaponTimer(totalTime, totalTime);	
+		HealthGuiManager.instance.SetSubweaponTimer(totalTime, totalTime);
 	}
 
 	IEnumerator _Combo(Combo comboData)
 	{
 		ComboInput();
-        aPlayer.PlayAudio(swingSFX);
-        animator.Play(comboData.animationName, 1);
+		aPlayer.PlayAudio(swingSFX);
+		animator.Play(comboData.animationName, 1);
 		yield return new WaitForSeconds(comboData.minTime);
-		if(dodgeState == DodgeState.Attacking)
+		if (dodgeState == DodgeState.Attacking)
 			dodgeState = DodgeState.None;
 		attackState = AttackState.Attacking;
-		yield return new WaitForSeconds(comboData.nextChain/SpecialSpeed - comboData.minTime/SpecialSpeed);
+		yield return new WaitForSeconds(comboData.nextChain / SpecialSpeed - comboData.minTime / SpecialSpeed);
 		attackState = AttackState.None;
-		yield return new WaitForSeconds(comboData.maxTime/SpecialSpeed - comboData.nextChain/SpecialSpeed - comboData.minTime/SpecialSpeed);
-		if(moveState == MoveState.Attacking)
+		yield return new WaitForSeconds(comboData.maxTime / SpecialSpeed - comboData.nextChain / SpecialSpeed - comboData.minTime / SpecialSpeed);
+		if (moveState == MoveState.Attacking)
 			moveState = MoveState.Enabled;
 		ComboOutput();
 	}
@@ -1041,79 +1072,87 @@ public class NewController : MonoBehaviour
 		ComboInput();
 		animator.Play(comboData.animationName, 1);
 		yield return new WaitForSeconds(comboData.minTime);
-		if(dodgeState == DodgeState.Attacking)
+		if (dodgeState == DodgeState.Attacking)
 			dodgeState = DodgeState.None;
 		attackState = AttackState.Attacking;
 		yield return new WaitForSeconds(comboData.nextChain - comboData.minTime);
 		attackState = AttackState.None;
 		yield return new WaitForSeconds(comboData.maxTime - comboData.nextChain - comboData.minTime);
-		if(moveState == MoveState.Attacking)
+		if (moveState == MoveState.Attacking)
 			moveState = MoveState.Enabled;
 		ComboOutput();
 	}
 	IEnumerator _ChainCombo()
 	{
 		float combotimer = 0;
-		while(attackState != AttackState.None)
+		while (attackState != AttackState.None)
 		{
 			yield return null;
 			combotimer += Time.deltaTime;
 		}
-		if(combotimer < 0.18f)
+		if (combotimer < 0.18f)
 		{
 			attackState = AttackState.WantToAttack;
 			attackInputDelay = null;
 		}
-		
+
 	}
-    IEnumerator _ChainSub()
-    {
-        float combotimer = 0;
-        while (attackState != AttackState.None)
-        {
-            yield return null;
-            combotimer += Time.deltaTime;
-        }
-        if (combotimer < 0.18f)
-        {
-            attackState = AttackState.WantToAttackSub;
-            attackInputDelay = null;
-        }
+	IEnumerator _ChainSub()
+	{
+		float combotimer = 0;
+		while (attackState != AttackState.None)
+		{
+			yield return null;
+			combotimer += Time.deltaTime;
+		}
+		if (combotimer < 0.18f)
+		{
+			attackState = AttackState.WantToAttackSub;
+			attackInputDelay = null;
+		}
 
-    }
+	}
 
-    IEnumerator _DisableHitbox(float time){
+	IEnumerator _DisableHitbox(float time)
+	{
 		hitBox.SetActive(false);
 		moveState = MoveState.Damage;
-		yield return new WaitForSeconds(time*0.2f);
-		if(moveState == MoveState.Damage)
+		yield return new WaitForSeconds(time * 0.2f);
+		if (moveState == MoveState.Damage)
 			moveState = MoveState.Enabled;
-		yield return new WaitForSeconds(time*0.8f);
-		if(alive)
+		yield return new WaitForSeconds(time * 0.8f);
+		if (alive)
 			hitBox.SetActive(true);
 		iFrameCoroutine = null;
 	}
 
-	IEnumerator _ModifyDamageDealerSize(float time, float size){
+	IEnumerator _ModifyDamageDealerSize(float time, float size)
+	{
 		//Time.timeScale = 0.2f;
-		damageDealerBox.transform.localScale = new Vector3 (size, size, size);
+		damageDealerBox.transform.localScale = new Vector3(size, size, size);
 		yield return new WaitForSeconds(time);
 		//Time.timeScale = 1f;
-		damageDealerBox.transform.localScale = new Vector3 (1, 1, 1);
+		damageDealerBox.transform.localScale = new Vector3(1, 1, 1);
 	}
-	IEnumerator _disablePlatform(GameObject platform){
-		platform.GetComponent<Collider>().enabled = false;
-		yield return new WaitForSeconds (0.5f);
-		//platform.GetComponent<Collider>().enabled = true;
+	IEnumerator _disablePlatform(GameObject platform)
+	{
+		Collider platformCollider = platform.GetComponent<Collider>();
+		Collider playerCollider = body.GetComponent<Collider>();
 
+		if (platformCollider != null && playerCollider != null)
+		{
+			Physics.IgnoreCollision(playerCollider, platformCollider, true);
+			yield return new WaitForSeconds(0.4f);
+			Physics.IgnoreCollision(playerCollider, platformCollider, false);
+		}
 	}
 
 
 	IEnumerator _DodgeWhileAttack()
 	{
-        //Buffer de dodge apos atacar
+		//Buffer de dodge apos atacar
 		yield return new WaitForSeconds(.05f);
-		if(dodgeState != DodgeState.DodgeLocked)
+		if (dodgeState != DodgeState.DodgeLocked)
 		{
 			yield return null;
 			dodgeState = DodgeState.WantToDodge;
@@ -1128,7 +1167,7 @@ public class NewController : MonoBehaviour
 		chargingSound.Play();
 		yield return new WaitForSeconds(0.6f);
 		aSource.PlayOneShot(chargeCompleteClip);
-		if(grounded)
+		if (grounded)
 			chargedParticle.Play();
 		PowerExplosion.SetTrigger("Activate");
 		isCharged = true;
@@ -1138,15 +1177,15 @@ public class NewController : MonoBehaviour
 
 	void AvaliatePowerAttack()
 	{
-		if(controllerState == ControllerState.Enabled)
+		if (controllerState == ControllerState.Enabled)
 		{
-			if(!isCharged)
+			if (!isCharged)
 			{
 				chargingParticle.Stop(true);
 				chargingParticle.GetComponentInChildren<ParticleSystem>().Clear();
 				chargedParticle.Stop(true);
 				chargingSound.Stop();
-				if(chargingCoroutine != null)
+				if (chargingCoroutine != null)
 					StopCoroutine(chargingCoroutine);
 			}
 			else
@@ -1159,10 +1198,10 @@ public class NewController : MonoBehaviour
 			chargingParticle.Stop(true);
 			chargingParticle.GetComponentInChildren<ParticleSystem>().Clear();
 			chargedParticle.Stop(true);
-			if(chargingCoroutine != null)
+			if (chargingCoroutine != null)
 				StopCoroutine(chargingCoroutine);
 		}
-		
+
 
 	}
 
@@ -1172,12 +1211,12 @@ public class NewController : MonoBehaviour
 		moveState = MoveState.Blocked;
 		attackState = AttackState.None;
 		jumpState = JumpState.None;
-		animator.Play("Sitting",0);
+		animator.Play("Sitting", 0);
 	}
 
 	public void EndSaving()
 	{
-		animator.Play("Standing",0);
+		animator.Play("Standing", 0);
 	}
 
 	public void ReEnableAfterSaving()
@@ -1186,7 +1225,7 @@ public class NewController : MonoBehaviour
 		moveState = MoveState.Enabled;
 		attackState = AttackState.None;
 		jumpState = JumpState.None;
-		animator.Play("Idle",0);
+		animator.Play("Idle", 0);
 	}
 
 	public void SetupSubweaponProjectile(GameObject prefab)
@@ -1197,7 +1236,7 @@ public class NewController : MonoBehaviour
 	public void FireSubweaponProjectile()
 	{
 		GameObject newProjectile = Instantiate(subweaponProjectile, projectileInstantiatingPoint.position, projectileInstantiatingPoint.rotation);
-        newProjectile.GetComponent<Projectile>().ShootProjectile(0);
+		newProjectile.GetComponent<Projectile>().ShootProjectile(0);
 	}
 
 }

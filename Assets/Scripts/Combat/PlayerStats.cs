@@ -104,8 +104,6 @@ public class PlayerStats : Stats
 	{
 		if(instance == null)
 		{
-			Debug.Log("Instanciando Stats");
-
 			DamageInfo damageInstance = UnityEngine.Object.Instantiate(initialStats.damage) as DamageInfo;
 			DefenseInfo defenseInstance = UnityEngine.Object.Instantiate(initialStats.defense) as DefenseInfo;
 			PlayerStats statsInstance = UnityEngine.Object.Instantiate(initialStats) as PlayerStats;

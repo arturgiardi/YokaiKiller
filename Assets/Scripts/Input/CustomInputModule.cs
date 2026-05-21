@@ -145,7 +145,6 @@ namespace UnityEngine.EventSystems
 			InputManager.OnMoveVertical -= OnVerticalAxisInput;
 			InputManager.OnRestHorizontal -= OnReleaseHorizontalAxis;
 			InputManager.OnRestVertical -= OnReleaseVerticalAxis;
-            print("Registrando eventos");
 			InputManager.OnMoveHorizontal += OnHorizontalAxisInput;
 			InputManager.OnMoveVertical += OnVerticalAxisInput;
 			InputManager.OnRestHorizontal += OnReleaseHorizontalAxis;
@@ -154,7 +153,6 @@ namespace UnityEngine.EventSystems
 
         public void UnregisterEvents()
 		{
-            print("Desregistrando eventos");
 			InputManager.OnMoveHorizontal -= OnHorizontalAxisInput;
 			InputManager.OnMoveVertical -= OnVerticalAxisInput;
 			InputManager.OnRestHorizontal -= OnReleaseHorizontalAxis;

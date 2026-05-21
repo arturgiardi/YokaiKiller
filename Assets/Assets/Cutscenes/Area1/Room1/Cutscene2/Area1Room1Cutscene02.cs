@@ -102,7 +102,6 @@ public class Area1Room1Cutscene02 : MonoBehaviour
 
     IEnumerator _Cutscene()
     {
-        Debug.Log("Starting cutscene A1-R1-C02");
         WaitForSecondsRealtime waitHalfSecond = new WaitForSecondsRealtime(0.5f);
         CinematicController.Cinematic_Start();
         yield return new WaitForSecondsRealtime(2);
@@ -154,9 +153,6 @@ public class Area1Room1Cutscene02 : MonoBehaviour
         AudioManager.instance.music.Play();
         DialogueManager.instance.StartDialogue(dialogue5);
         yield return new WaitUntil(() => DialogueManager.instance.endDialogue);
-        //director.playableAsset = timeline5;
-        //director.Play();
-        //yield return new WaitForSeconds((float)timeline5.duration);
 
         kintaro.SetTrigger("Battle");
         watanabe.SetTrigger("Battle");

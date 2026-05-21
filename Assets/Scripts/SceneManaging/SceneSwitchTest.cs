@@ -117,7 +117,6 @@ public class SceneSwitchTest : MonoBehaviour {
 			raiko.position = GameObject.FindGameObjectWithTag("Point_" + content.strings[1]).transform.position;	
 			yield return null;
 			raiko.GetComponent<CharacterController>().enabled = true;
-			Debug.Log(raiko.position);
 			Time.timeScale = 0;
 			GameManager.instance.cameraController.Recenter();
 			GameManager.instance.cameraController.GetLimits();
@@ -220,7 +219,6 @@ public class SceneSwitchTest : MonoBehaviour {
 
 	IEnumerator _LoadSceneInBackground(string sceneName)
 	{
-		Debug.Log("Loading scene: " + sceneName);
 		if(!loadedScenes.ContainsKey(sceneName))
 		{
 			yield return SceneManager.LoadSceneAsync(sceneName,LoadSceneMode.Additive);
@@ -231,7 +229,6 @@ public class SceneSwitchTest : MonoBehaviour {
 			}
 			loadedScenes[sceneName] = SceneManager.GetSceneByName(sceneName);
 		}
-		Debug.Log("Loaded scenes: " + loadedRooms);
 	}
 
 	IEnumerator _FadeOut()

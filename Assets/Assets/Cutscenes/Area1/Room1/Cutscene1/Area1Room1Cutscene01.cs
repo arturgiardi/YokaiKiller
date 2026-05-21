@@ -64,7 +64,6 @@ public class Area1Room1Cutscene01 : MonoBehaviour
 
     IEnumerator _Cutscene()
     {
-        Debug.Log("Starting cutscene A1-R1-C2");
         gameCamera.transform.position = cutsceneCameraPosition.position;
         CinematicController.Cinematic_Start();
         ScreenFaderManager.instance.ScreenOut();

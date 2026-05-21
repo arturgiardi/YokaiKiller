@@ -113,7 +113,6 @@ public class SceneSwitchTest : MonoBehaviour {
 			SceneManager.SetActiveScene(SceneManager.GetSceneByName(content.strings[0]));
 			raiko.GetComponent<CharacterController>().enabled = false;
 			yield return null;
-			Debug.Log(raiko.position);
 			raiko.position = GameObject.FindGameObjectWithTag("Point_" + content.strings[1]).transform.position;	
 			yield return null;
 			raiko.GetComponent<CharacterController>().enabled = true;

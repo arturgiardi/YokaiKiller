@@ -104,11 +104,9 @@ public class Area1Room2Cutscene1 : MonoBehaviour
 
     IEnumerator _Cutscene()
     {
-        Debug.Log("Starting cutscene A1-R2-C1", gameObject);
         //ScreenFaderManager.instance.ScreenOut();
         yield return new WaitForSecondsRealtime(.5f);
         ScreenFaderManager.instance.ScreenFadeIn();
-        Debug.Log("Cutscene");
         director.playableAsset = timeline1;
         director.Play();
         yield return new WaitForSeconds((float)timeline1.duration + 1);

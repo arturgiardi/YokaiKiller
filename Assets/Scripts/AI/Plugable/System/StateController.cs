@@ -297,7 +297,6 @@ public class StateController : MonoBehaviour
 		if(dropController != null)
 			dropController.DropItems();
 		aiActive = false;
-		print("morto");
 		animator.Play("Dead",0);
 		//animator.Play("Damage",1,0);
 		PlayerStats.instance.AddXP(stats.experience);

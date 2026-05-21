@@ -41,7 +41,6 @@ public class ScreenFaderManager: MonoBehaviour {
     public void ScreenFadeOut()
     {
         anim.SetTrigger("FadeOut");
-        Debug.Log("FadeOut");
     }
 
     //-> Deprecated

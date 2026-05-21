@@ -59,10 +59,6 @@ public class PlayerStats : Stats
 		DamageInfo finalDamageInfo = Stats.CalculateDamage(damage, defense, attacker, this);
 		int finalDamage = finalDamageInfo.ammount;
 
-		#if UNITY_EDITOR
-			Debug.Log("<color=green><b>Player</b></color> took <color=brown><b>" + finalDamage + "</b></color> damage from <color=brown><b>" + instigator.name +"</b></color>");
-		#endif
-
 		if(currentHealth <= 0 && OnDeath != null)
 		{
 			OnDeath(instigator,damage,attacker);
@@ -85,7 +81,6 @@ public class PlayerStats : Stats
 			else
 			{
 				FindObjectOfType<CameraManager> ().ShakeCamera (finalDamageInfo.contactTime*3, finalDamageInfo.intensity*2);
-				Debug.Log(PlayerStatsController.instance);
 				DamagePopup.InstantiateDamage (DamagePopup.DamageColor.Red, PlayerStatsController.instance.origin.position, finalDamageInfo.ammount);
 			}
 		}
@@ -140,9 +135,6 @@ public class PlayerStats : Stats
 	{
 		ammount *= xpMultiplier;
 		currentXP = currentXP + ammount;
-		#if UNITY_EDITOR
-					Debug.Log("<color=green><b>You got " + ammount + " xp!</b></color>");
-		#endif
 		if (currentLevel < GetLevel (currentXP)) {
 			//LevelFeedback ();
 			//MaxHealth += 10;

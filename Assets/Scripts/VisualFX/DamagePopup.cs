@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
-public class DamagePopup : MonoBehaviour {
-	public enum DamageColor {White, Red, RedCritical, WhiteCritical, Green};
+public class DamagePopup : MonoBehaviour
+{
+	public enum DamageColor { White, Red, RedCritical, WhiteCritical, Green };
 
 	[SerializeField] GameObject whitePrefab;
 	[SerializeField] GameObject whiteCriticalPrefab;
@@ -22,7 +21,8 @@ public class DamagePopup : MonoBehaviour {
 
 	static MonoBehaviour mono;
 
-	void Start(){
+	void Start()
+	{
 		//Check if instance already exists
 		if (mono == null)
 
@@ -30,9 +30,10 @@ public class DamagePopup : MonoBehaviour {
 			mono = this;
 
 		//If instance already exists and it's not this:
-		else if (mono != this) {
+		else if (mono != this)
+		{
 			//Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
-			Destroy (gameObject);
+			Destroy(gameObject);
 			return;
 		}
 		mono = this;
@@ -42,30 +43,41 @@ public class DamagePopup : MonoBehaviour {
 		_greenPrefab = greenPrefab;
 		_whitePrefab = whitePrefab;
 		_whiteCriticalPrefab = whiteCriticalPrefab;
+		Debug.Log(gameObject.name + " is singleton");
 
 	}
 
-	public static void InstantiateDamage(DamageColor color, Vector3 position, float ammount){
+	public static void InstantiateDamage(DamageColor color, Vector3 position, float ammount)
+	{
 		GameObject go = null;
 		position.z -= 0.3f;
-		switch (color) {
-		case DamageColor.White:
-			go = Instantiate (_whitePrefab, position, Quaternion.identity, parent) as GameObject;
-			break;
-		case DamageColor.Red:
-			go = Instantiate (_redPrefab, position, Quaternion.identity, parent) as GameObject;
-			break;
-		case DamageColor.RedCritical:
-			go = Instantiate (_redCriticalPrefab, position, Quaternion.identity, parent) as GameObject;
-			break;
-		case DamageColor.WhiteCritical:
-			go = Instantiate (_whiteCriticalPrefab, position, Quaternion.identity, parent) as GameObject;
-			break;
-		case DamageColor.Green:
-			go = Instantiate (_greenPrefab, position, Quaternion.identity, parent) as GameObject;
-			break;
+		switch (color)
+		{
+			case DamageColor.White:
+				go = Instantiate(_whitePrefab, position, Quaternion.identity, parent) as GameObject;
+				break;
+			case DamageColor.Red:
+				go = Instantiate(_redPrefab, position, Quaternion.identity, parent) as GameObject;
+				break;
+			case DamageColor.RedCritical:
+				go = Instantiate(_redCriticalPrefab, position, Quaternion.identity, parent) as GameObject;
+				break;
+			case DamageColor.WhiteCritical:
+				go = Instantiate(_whiteCriticalPrefab, position, Quaternion.identity, parent) as GameObject;
+				break;
+			case DamageColor.Green:
+				go = Instantiate(_greenPrefab, position, Quaternion.identity, parent) as GameObject;
+				break;
 		}
-		go.transform.GetChild (0).GetComponent<TMP_Text> ().text = ammount.ToString ();
-		//go.transform.GetChild (0).GetChild (0).GetComponent<Text> ().text = ammount.ToString ();
+
+		var textMeshPro = go.GetComponentInChildren<TMP_Text>();
+		if (textMeshPro != null)
+		{
+			textMeshPro.SetText(ammount.ToString());
+			return;			
+		}
+
+		var text = go.GetComponentInChildren<Text>();
+		text.text = ammount.ToString();
 	}
 }

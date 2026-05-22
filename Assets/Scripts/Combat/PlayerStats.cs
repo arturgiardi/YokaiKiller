@@ -135,9 +135,6 @@ public class PlayerStats : Stats
 			//HealthGuiManager.instance.IncreaseMaxHealth (10);
 			//HealthGuiManager.instance.SetLevel (currentLevel);
 			currentLevel++;	
-			#if UNITY_EDITOR
-				Debug.Log("<color=green><b>You reached level " + currentLevel + "</b></color>");
-			#endif
 			if(OnEarnLevel != null)
 			{
 				OnEarnLevel(currentLevel);

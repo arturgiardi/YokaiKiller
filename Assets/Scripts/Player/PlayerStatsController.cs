@@ -592,9 +592,6 @@ public class PlayerStatsController : MonoBehaviour
 		// newSS.skillFlags.hasDoubleJump = PlayerStats.instance.skillFlags.hasDoubleJump;
 		// newSS.skillFlags.havePowerAttack = PlayerStats.instance.skillFlags.havePowerAttack;
 
-
-		Debug.Log("Saving: " + PlayerStats.instance.skillFlags.havePowerAttack);
-
 		newSS.exp = PlayerStats.instance.experience;
 		newSS.level = PlayerStats.instance.level;
 

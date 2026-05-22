@@ -43,7 +43,6 @@ public class DamagePopup : MonoBehaviour
 		_greenPrefab = greenPrefab;
 		_whitePrefab = whitePrefab;
 		_whiteCriticalPrefab = whiteCriticalPrefab;
-		Debug.Log(gameObject.name + " is singleton");
 
 	}
 

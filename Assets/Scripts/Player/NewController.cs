@@ -830,10 +830,8 @@ public class NewController : MonoBehaviour
 		RaycastHit hit = new RaycastHit();
 		if (Physics.Raycast(ray, out hit, body.height + 0.3f, 1 << 20))
 		{
-			Debug.Log("Raycast hit: " + hit.transform.name);
 			if (hit.transform.tag == "Platform")
 			{
-				Debug.Log("Platform detected: " + hit.transform.name);
 				return hit.transform.gameObject;
 			}
 		}

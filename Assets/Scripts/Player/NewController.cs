@@ -4,6 +4,7 @@ using Homebrew;
 
 public class NewController : MonoBehaviour
 {
+	[field: SerializeField] public CharacterController Body { get; private set; }
 	#region Combo Setups
 
 	[SerializeField] ComboSetup groundedComboSequence;
@@ -431,18 +432,18 @@ public class NewController : MonoBehaviour
 
 	void AttackInputDown()
 	{
-		if (GameManager.gameState != GameState.Playing || controllerState != ControllerState.Enabled)
+		if (GameManager.gameState != GameState.Playing ||
+			controllerState != ControllerState.Enabled)
 			return;
-		attackType = AttackType.Normal;
-		if (attackState == AttackState.None)
-			attackState = AttackState.WantToAttack;
-		else
+
+		if (attackState != AttackState.None)
 		{
 			if (attackInputDelay != null)
 				StopCoroutine(attackInputDelay);
 			attackInputDelay = _ChainCombo();
 			StartCoroutine(attackInputDelay);
 		}
+
 		if (PlayerStats.instance.skillFlags.havePowerAttack)
 		{
 			if (chargingCoroutine != null)
@@ -450,7 +451,6 @@ public class NewController : MonoBehaviour
 			chargingCoroutine = _ChargeUp();
 			StartCoroutine(chargingCoroutine);
 		}
-
 	}
 	void SubweaponInputDown()
 	{
@@ -1017,7 +1017,7 @@ public class NewController : MonoBehaviour
 			if (dodgeState != DodgeState.DodgeLocked)
 				dodgeState = DodgeState.Attacking;
 
-			attackCoroutine = _Combo(powerAttacks.sequence[1]); //-> 1 = grounded power attack
+			attackCoroutine = _Combo(powerAttacks.sequence[0]); //-> 1 = grounded power attack
 
 		}
 		else
@@ -1026,9 +1026,9 @@ public class NewController : MonoBehaviour
 			//animator.SetTrigger("Attack");
 			//animator.SetBool("Null", false);
 			if (body.velocity.x != 0)
-				attackCoroutine = _Combo(powerAttacks.sequence[2]); //-> 2 = air power attack
+				attackCoroutine = _Combo(powerAttacks.airSequence[0]); //-> 2 = air power attack
 			else
-				attackCoroutine = _Combo(powerAttacks.sequence[3]); //-> 3 =  air power attack forward
+				attackCoroutine = _Combo(powerAttacks.airMovingSequence[0]); //-> 3 =  air power attack forward
 		}
 		StartCoroutine(attackCoroutine);
 	}
@@ -1174,32 +1174,39 @@ public class NewController : MonoBehaviour
 
 	void AvaliatePowerAttack()
 	{
+		if (chargingCoroutine != null)
+		{
+			StopCoroutine(chargingCoroutine);
+			chargingCoroutine = null;
+		}
+
 		if (controllerState == ControllerState.Enabled)
 		{
-			if (!isCharged)
+			if (isCharged)
 			{
+				// Se soltou o botão e ESTÁ carregado: Solta o Power Attack!
+				PowerAttack();
+			}
+			else
+			{
+				// Se soltou o botão e NÃO deu o tempo de carregar: É um ataque normal!
 				chargingParticle.Stop(true);
 				chargingParticle.GetComponentInChildren<ParticleSystem>().Clear();
 				chargedParticle.Stop(true);
 				chargingSound.Stop();
-				if (chargingCoroutine != null)
-					StopCoroutine(chargingCoroutine);
-			}
-			else
-			{
-				PowerAttack();
+
+				// Só ataca se não estiver executando outra ação bloqueante
+				if (attackState == AttackState.None)
+				{
+					attackType = AttackType.Normal;
+					attackState = AttackState.WantToAttack;
+				}
 			}
 		}
 		else
 		{
-			chargingParticle.Stop(true);
-			chargingParticle.GetComponentInChildren<ParticleSystem>().Clear();
-			chargedParticle.Stop(true);
-			if (chargingCoroutine != null)
-				StopCoroutine(chargingCoroutine);
+			interruptPowerAttack();
 		}
-
-
 	}
 
 	public void StartSaving()

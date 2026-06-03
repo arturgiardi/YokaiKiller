@@ -129,8 +129,6 @@ public class StateController : MonoBehaviour
 
 	void Update()
 	{
-		if(Input.GetKeyDown(KeyCode.B))
-			OnEnable();
 		if(!aiActive || !stats.alive)
 			return;
 		
@@ -282,11 +280,6 @@ public class StateController : MonoBehaviour
 		}
 	}
 	
-	[ContextMenu("KILL!")]
-	public void KillTest()
-	{
-		DeathEvent(null, null, null);
-	}
 	public void DeathEvent(GameObject instigator, DamageInfo damage, Stats attacker)
 	{
         animator.speed = 1;

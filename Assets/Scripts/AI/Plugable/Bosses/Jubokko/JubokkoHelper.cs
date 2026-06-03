@@ -111,13 +111,13 @@ public class JubokkoHelper : MonoBehaviour
 		healthPercentage = currentHP/maxHp;
 		bloodParticles.Play(true);
 		Debug.Log(healthPercentage);
-		if(currentHP > 250)
+		if(healthPercentage > 0.5f)
 		{
 			controller.animator.SetFloat("ActionSpeed", 1);
 			attackRecharges = 1;
 			coolDownMultiplier = 1;
 		}
-		else if(healthPercentage > 110)
+		else if(healthPercentage > 0.25f)
 		{
             controller.animator.Play("Enrage_1", 3);
 			controller.animator.SetFloat("ActionSpeed", 1.35f);

@@ -237,7 +237,7 @@ public class StateController : MonoBehaviour
 					DamagePopup.InstantiateDamage (DamagePopup.DamageColor.White, origin.position, finalDamage);
 				}
 				
-				stats.currentHealth -= finalDamage;
+				stats.currentHealth = Mathf.Max(0, stats.currentHealth - finalDamage);
 				//stats.currentHealth = Mathf.Round(stats.currentHealth);
 				if(stats.OnChangeHP != null)
 				{

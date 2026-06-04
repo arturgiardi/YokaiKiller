@@ -94,7 +94,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 6580cf27dabe932478768787aa188c25,
+    type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 92002b23332f0d64ab29f829a9596ba4,
     type: 2}
 --- !u!196 &4
@@ -28097,6 +28098,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1548592058849759647, guid: bffb2304c5523a3459c85e69e6d76069,
         type: 3}
+      propertyPath: m_fontSize
+      value: 23.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1548592058849759647, guid: bffb2304c5523a3459c85e69e6d76069,
+        type: 3}
       propertyPath: m_havePropertiesChanged
       value: 1
       objectReference: {fileID: 0}
@@ -28207,6 +28213,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1997560254461793721, guid: bffb2304c5523a3459c85e69e6d76069,
         type: 3}
+      propertyPath: m_fontSize
+      value: 25.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1997560254461793721, guid: bffb2304c5523a3459c85e69e6d76069,
+        type: 3}
       propertyPath: m_havePropertiesChanged
       value: 1
       objectReference: {fileID: 0}
@@ -28289,6 +28300,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2233226843872219611, guid: bffb2304c5523a3459c85e69e6d76069,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 24.15
       objectReference: {fileID: 0}
     - target: {fileID: 2233226843872219611, guid: bffb2304c5523a3459c85e69e6d76069,
         type: 3}
@@ -28502,6 +28518,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3165790555171081120, guid: bffb2304c5523a3459c85e69e6d76069,
         type: 3}
+      propertyPath: m_fontSize
+      value: 24.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3165790555171081120, guid: bffb2304c5523a3459c85e69e6d76069,
+        type: 3}
       propertyPath: m_havePropertiesChanged
       value: 1
       objectReference: {fileID: 0}
@@ -28659,6 +28680,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -46.98755
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940900462961021299, guid: bffb2304c5523a3459c85e69e6d76069,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 24.65
       objectReference: {fileID: 0}
     - target: {fileID: 3940900462961021299, guid: bffb2304c5523a3459c85e69e6d76069,
         type: 3}
@@ -29312,6 +29338,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7412931648209168333, guid: bffb2304c5523a3459c85e69e6d76069,
         type: 3}
+      propertyPath: m_fontSize
+      value: 24.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 7412931648209168333, guid: bffb2304c5523a3459c85e69e6d76069,
+        type: 3}
       propertyPath: m_havePropertiesChanged
       value: 1
       objectReference: {fileID: 0}
@@ -29457,6 +29488,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8464444794261832997, guid: bffb2304c5523a3459c85e69e6d76069,
         type: 3}
+      propertyPath: m_fontSize
+      value: 24.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464444794261832997, guid: bffb2304c5523a3459c85e69e6d76069,
+        type: 3}
       propertyPath: m_havePropertiesChanged
       value: 1
       objectReference: {fileID: 0}
@@ -29489,6 +29525,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8669464102476421472, guid: bffb2304c5523a3459c85e69e6d76069,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 24.65
       objectReference: {fileID: 0}
     - target: {fileID: 8669464102476421472, guid: bffb2304c5523a3459c85e69e6d76069,
         type: 3}
@@ -29584,6 +29625,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9211821004547511623, guid: bffb2304c5523a3459c85e69e6d76069,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 24.7
       objectReference: {fileID: 0}
     - target: {fileID: 9211821004547511623, guid: bffb2304c5523a3459c85e69e6d76069,
         type: 3}
@@ -173556,7 +173602,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 4.5734077e-38, y: 9.1835e-41, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -189107,9 +189153,9 @@ MonoBehaviour:
     sentence: Well, well... What do we have here?
   - name: Ibaraki Doji
     sentence: What are you worms doing in Lord Shuten Doji's territory?
-  dialogue2:
   - name: Urabe
     sentence: What did you say?!
+  dialogue2:
   - name: Raiko
     sentence: You are holding Sayome Fujiwara, the daughter of our master!
   - name: Raiko

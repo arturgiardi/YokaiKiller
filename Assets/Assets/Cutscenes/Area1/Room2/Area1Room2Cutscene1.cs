@@ -1,9 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Playables;
-/// <summary>
-/// Cutscene que mostra Raiko caindo no buraco e inicia o gameplay
-/// </summary>
 [RequireComponent(typeof(PlayableDirector))]
 public class Area1Room2Cutscene1 : MonoBehaviour
 {
@@ -37,6 +34,11 @@ public class Area1Room2Cutscene1 : MonoBehaviour
 
     [SerializeField]
     AudioClip area1Music;
+    [SerializeField]
+    AudioClip hitSfx;
+    [SerializeField]
+    AudioSource audioSource;
+
 
     bool triggered = false;
 
@@ -109,7 +111,8 @@ public class Area1Room2Cutscene1 : MonoBehaviour
         ScreenFaderManager.instance.ScreenFadeIn();
         director.playableAsset = timeline1;
         director.Play();
-        yield return new WaitForSeconds((float)timeline1.duration + 1);
+        yield return new WaitForSeconds((float)timeline1.duration +1f);
+        audioSource.PlayOneShot(hitSfx);
         director.playableAsset = timeline2;
         director.Play();
         yield return new WaitForSeconds((float)timeline2.duration - 3f);

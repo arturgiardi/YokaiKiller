@@ -16,8 +16,8 @@ namespace UnityEngine.EventSystems
         private Vector2 m_LastMousePosition;
         private Vector2 m_MousePosition;
 
-		private Vector2 m_axisMove;
-		private bool forceAllow = false;
+        private Vector2 m_axisMove;
+        private bool forceAllow = false;
 
         IEnumerator _inputHoldCoroutine;
 
@@ -25,7 +25,7 @@ namespace UnityEngine.EventSystems
 
 
         protected CustomInputModule()
-        {}
+        { }
 
         [Obsolete("Mode is no longer needed on input module as it handles both mouse and keyboard simultaneously.", false)]
         public enum InputMode
@@ -40,7 +40,7 @@ namespace UnityEngine.EventSystems
             get { return InputMode.Mouse; }
         }
 
-		[SerializeField]
+        [SerializeField]
         private float m_DeadZone = 0.2f;
 
         [SerializeField]
@@ -138,86 +138,86 @@ namespace UnityEngine.EventSystems
         {
             UnregisterEvents();
         }
-		
-		public void RegisterEvents()
-		{
+
+        public void RegisterEvents()
+        {
             InputManager.OnMoveHorizontal -= OnHorizontalAxisInput;
-			InputManager.OnMoveVertical -= OnVerticalAxisInput;
-			InputManager.OnRestHorizontal -= OnReleaseHorizontalAxis;
-			InputManager.OnRestVertical -= OnReleaseVerticalAxis;
-			InputManager.OnMoveHorizontal += OnHorizontalAxisInput;
-			InputManager.OnMoveVertical += OnVerticalAxisInput;
-			InputManager.OnRestHorizontal += OnReleaseHorizontalAxis;
-			InputManager.OnRestVertical += OnReleaseVerticalAxis;
-		}
+            InputManager.OnMoveVertical -= OnVerticalAxisInput;
+            InputManager.OnRestHorizontal -= OnReleaseHorizontalAxis;
+            InputManager.OnRestVertical -= OnReleaseVerticalAxis;
+            InputManager.OnMoveHorizontal += OnHorizontalAxisInput;
+            InputManager.OnMoveVertical += OnVerticalAxisInput;
+            InputManager.OnRestHorizontal += OnReleaseHorizontalAxis;
+            InputManager.OnRestVertical += OnReleaseVerticalAxis;
+        }
 
         public void UnregisterEvents()
-		{
-			InputManager.OnMoveHorizontal -= OnHorizontalAxisInput;
-			InputManager.OnMoveVertical -= OnVerticalAxisInput;
-			InputManager.OnRestHorizontal -= OnReleaseHorizontalAxis;
-			InputManager.OnRestVertical -= OnReleaseVerticalAxis;
-		}
+        {
+            InputManager.OnMoveHorizontal -= OnHorizontalAxisInput;
+            InputManager.OnMoveVertical -= OnVerticalAxisInput;
+            InputManager.OnRestHorizontal -= OnReleaseHorizontalAxis;
+            InputManager.OnRestVertical -= OnReleaseVerticalAxis;
+        }
 
-		//Event callbacks
-		void OnHorizontalAxisInput(float value)
-		{	
+        //Event callbacks
+        void OnHorizontalAxisInput(float value)
+        {
             //previousInputTime = 0;
-            if(_inputHoldCoroutine != null)
+            if (_inputHoldCoroutine != null)
                 StopCoroutine(_inputHoldCoroutine);
             _inputHoldCoroutine = _InputTimer();
             StartCoroutine(_inputHoldCoroutine);
 
-			forceAllow = true;
+            forceAllow = true;
 
-			if(value > 0)
-			{
-				m_axisMove.x = 1;
-			}
-			else
-			{
-				m_axisMove.x = -1;
-			}
-		}
-		void OnVerticalAxisInput(float value)
-		{
+            if (value > 0)
+            {
+                m_axisMove.x = 1;
+            }
+            else
+            {
+                m_axisMove.x = -1;
+            }
+        }
+        void OnVerticalAxisInput(float value)
+        {
             //previousInputTime = 0;
-            if(_inputHoldCoroutine != null)
+            if (_inputHoldCoroutine != null)
                 StopCoroutine(_inputHoldCoroutine);
             _inputHoldCoroutine = _InputTimer();
             StartCoroutine(_inputHoldCoroutine);
 
-			forceAllow = true;
-			if(value > 0)
-			{
-				m_axisMove.y = 1;
-			}
-			else
-			{
-				m_axisMove.y = -1;
-			}
-		}
+            forceAllow = true;
+            if (value > 0)
+            {
+                m_axisMove.y = 1;
+            }
+            else
+            {
+                m_axisMove.y = -1;
+            }
+        }
 
-		void OnReleaseHorizontalAxis(float value)
-		{
-            if(_inputHoldCoroutine != null)
-                StopCoroutine(_inputHoldCoroutine);
-            
-            repeating = false;
-
-			forceAllow = false;
-			m_axisMove.x =0;
-		}
-		void OnReleaseVerticalAxis(float value)
-		{
-            if(_inputHoldCoroutine != null)
+        void OnReleaseHorizontalAxis(float value)
+        {
+            if (_inputHoldCoroutine != null)
                 StopCoroutine(_inputHoldCoroutine);
 
             repeating = false;
 
-			forceAllow = false;
-			m_axisMove.y =0;
-		}
+            forceAllow = false;
+            m_axisMove.x = 0;
+        }
+        void OnReleaseVerticalAxis(float value)
+        {
+            if (_inputHoldCoroutine != null)
+                StopCoroutine(_inputHoldCoroutine);
+
+            repeating = false;
+
+            forceAllow = false;
+            m_axisMove.y = 0;
+        }
 
 
         public override void UpdateModule()
@@ -333,20 +333,20 @@ namespace UnityEngine.EventSystems
         /// </summary>
         protected bool SendMoveEventToSelectedObject()
         {
-            if(previousInputTime < 1/m_InputActionsPerSecond)
+            if (previousInputTime < 1 / m_InputActionsPerSecond)
             {
                 previousInputTime += Time.unscaledDeltaTime;
                 return false;
             }
 
             //Vector2 movement = GetRawMoveVector();
-			Vector2 movement = Vector2.zero;
+            Vector2 movement = Vector2.zero;
 
-			if(m_axisMove.magnitude > m_DeadZone)
-			{
-				//print("THISSSS");
-				movement = new Vector2(m_axisMove.x, m_axisMove.y);
-			}
+            if (m_axisMove.magnitude > m_DeadZone)
+            {
+                //print("THISSSS");
+                movement = new Vector2(m_axisMove.x, m_axisMove.y);
+            }
 
             if (Mathf.Approximately(movement.x, 0f) && Mathf.Approximately(movement.y, 0f))
             {
@@ -358,7 +358,7 @@ namespace UnityEngine.EventSystems
             //bool allow = Input.GetButtonDown(m_HorizontalAxis) || Input.GetButtonDown(m_VerticalAxis);
             bool allow = false;
 
-			if(forceAllow)
+            if (forceAllow)
             {
                 allow = true;
                 forceAllow = false;
@@ -377,7 +377,7 @@ namespace UnityEngine.EventSystems
 
             }
 
-            
+
             // Debug.Log(m_ProcessingEvent.rawType + " axis:" + m_AllowAxisEvents + " value:" + "(" + x + "," + y + ")");
             var axisEventData = GetAxisEventData(movement.x, movement.y, 0.6f);
             ExecuteEvents.Execute(eventSystem.currentSelectedGameObject, axisEventData, ExecuteEvents.moveHandler);
@@ -537,10 +537,10 @@ namespace UnityEngine.EventSystems
         IEnumerator _InputTimer()
         {
             float repeatTimer = 0;
-            while(repeatTimer < m_RepeatDelay)
+            while (repeatTimer < m_RepeatDelay)
             {
                 repeatTimer += Time.unscaledDeltaTime;
-                yield return null; 
+                yield return null;
             }
             repeating = true;
         }

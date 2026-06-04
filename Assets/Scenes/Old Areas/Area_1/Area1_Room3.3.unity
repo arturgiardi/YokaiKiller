@@ -4935,6 +4935,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114014300167942710, guid: bffb2304c5523a3459c85e69e6d76069,
+        type: 3}
+      propertyPath: m_HorizontalAxis
+      value: Horizontal
+      objectReference: {fileID: 0}
     - target: {fileID: 114208398212415910, guid: bffb2304c5523a3459c85e69e6d76069,
         type: 3}
       propertyPath: jump

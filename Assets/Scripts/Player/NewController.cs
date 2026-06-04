@@ -516,8 +516,7 @@ public class NewController : MonoBehaviour
 		if (grounded && jumpState == JumpState.None)
 		{
 			bool apertouParaBaixo = Input.GetAxisRaw("Vertical") < -0.5f
-							 || InputManager.lAxis.y < -0.5f
-							 || -Input.GetAxisRaw("Joy_L_Vertical") < -0.5f;
+							 || InputManager.lAxis.y < -0.5f;
 
 			if (apertouParaBaixo)
 			{

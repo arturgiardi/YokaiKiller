@@ -208,7 +208,7 @@ public class MenuManager : MonoBehaviour
 
 	IEnumerator _snap(float targetScrollPosition)
 	{
-		
+		yield break;
 		while(currentGrid.gridView.GetComponent<ScrollRect>().verticalNormalizedPosition != targetScrollPosition)
 		{
 			currentGrid.gridView.GetComponent<ScrollRect>().verticalNormalizedPosition=Mathf.MoveTowards(currentGrid.gridView.GetComponent<ScrollRect>().verticalNormalizedPosition, targetScrollPosition, 2f*Time.unscaledDeltaTime);
@@ -225,11 +225,11 @@ public class MenuManager : MonoBehaviour
 		foreach(GameObject card in cards)
 		{
 			card.transform.SetParent(inventoryGrid.layoutGroup.transform,false);
-			EventTrigger trigger = card.GetComponent<EventTrigger>();
-        	EventTrigger.Entry entry = new EventTrigger.Entry();
-        	entry.eventID = EventTriggerType.Select;
-        	entry.callback.AddListener((data) => { SnapTo((UnityEngine.EventSystems.BaseEventData)data); });
-        	trigger.triggers.Add(entry);
+			// EventTrigger trigger = card.GetComponent<EventTrigger>();
+        	// EventTrigger.Entry entry = new EventTrigger.Entry();
+        	// entry.eventID = EventTriggerType.Select;
+        	// entry.callback.AddListener((data) => { SnapTo((UnityEngine.EventSystems.BaseEventData)data); });
+        	// trigger.triggers.Add(entry);
 		}
 		if(cards.Count > 0)
 			inventoryWindow.firstElement = cards[0];
@@ -252,13 +252,15 @@ public class MenuManager : MonoBehaviour
 		foreach(GameObject card in weaponCards)
 		{
 			card.transform.SetParent(equipmentGrid.layoutGroup.transform,false);
-			EventTrigger trigger = card.GetComponent<EventTrigger>();
-        	EventTrigger.Entry entry = new EventTrigger.Entry();
-        	entry.eventID = EventTriggerType.Select;
-        	entry.callback.AddListener((data) => { SnapTo((UnityEngine.EventSystems.BaseEventData)data); });
-        	trigger.triggers.Add(entry);
+			// EventTrigger trigger = card.GetComponent<EventTrigger>();
+        	// EventTrigger.Entry entry = new EventTrigger.Entry();
+        	// entry.eventID = EventTriggerType.Select;
+        	// entry.callback.AddListener((data) => 
+			// 	{ SnapTo((UnityEngine.EventSystems.BaseEventData)data); });
+        	// trigger.triggers.Add(entry);
 		}
-		CalculateGridFit(equipmentGrid.gridView, (GridLayoutGroup) equipmentGrid.layoutGroup);
+		CalculateGridFit(equipmentGrid.gridView, 
+			(GridLayoutGroup) equipmentGrid.layoutGroup);
 	}
 	void GetArtifactsList()
 	{
@@ -268,11 +270,11 @@ public class MenuManager : MonoBehaviour
 			ItemCard cardData = card.GetComponent<ItemCard>();
 
 			card.transform.SetParent(artifactGrid.layoutGroup.transform,false);
-			EventTrigger trigger = card.GetComponent<EventTrigger>();
-			EventTrigger.Entry entry = new EventTrigger.Entry();
-			entry.eventID = EventTriggerType.Select;
-			entry.callback.AddListener((data) => { SnapTo((UnityEngine.EventSystems.BaseEventData)data); });
-			trigger.triggers.Add(entry);
+			// EventTrigger trigger = card.GetComponent<EventTrigger>();
+			// EventTrigger.Entry entry = new EventTrigger.Entry();
+			// entry.eventID = EventTriggerType.Select;
+			// entry.callback.AddListener((data) => { SnapTo((UnityEngine.EventSystems.BaseEventData)data); });
+			// trigger.triggers.Add(entry);
 			
 		}
 		CalculateGridFit(artifactGrid.gridView, (GridLayoutGroup) artifactGrid.layoutGroup);

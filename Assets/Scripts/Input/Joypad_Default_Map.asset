@@ -24,14 +24,14 @@ MonoBehaviour:
   ltInput: 0
   lsInput: 339
   backInput: 0
-  startInput: 13
+  startInput: 337
   rHorizontalInput:
     axisType: 0
     axisName: 
     positiveKey: 276
     negativeKey: 275
     buttonOverride: 0
-    lastState: 0
+    lastState: -1
   lHorizontalInput:
     axisType: 1
     axisName: Joy_L_Horizontal

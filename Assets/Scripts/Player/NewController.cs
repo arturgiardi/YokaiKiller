@@ -515,7 +515,11 @@ public class NewController : MonoBehaviour
 			return;
 		if (grounded && jumpState == JumpState.None)
 		{
-			if (InputManager.lAxis.y < -0.95f || Input.GetAxisRaw("Vertical") < -0.5f)
+			bool apertouParaBaixo = Input.GetAxisRaw("Vertical") < -0.5f
+							 || InputManager.lAxis.y < -0.5f
+							 || -Input.GetAxisRaw("Joy_L_Vertical") < -0.5f;
+
+			if (apertouParaBaixo)
 			{
 				GameObject platform = DetectUnderPlatform();
 				if (platform != null)

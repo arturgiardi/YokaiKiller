@@ -339,7 +339,8 @@ public class InputManager : MonoBehaviour {
 
         }
 
-        rightAxisInput = rightAxisInput.magnitude > deadZone ? GetExponentialAxis(rightAxisInput * axisSensitivity) : Vector3.zero;
+        rightAxisInput = rightAxisInput.magnitude > deadZone ? 
+            GetExponentialAxis(rightAxisInput * axisSensitivity) : Vector3.zero;
 
         Vector3 leftAxisInput = new Vector3(0,0,0);
         
@@ -366,7 +367,8 @@ public class InputManager : MonoBehaviour {
             }
         }
 
-        leftAxisInput = leftAxisInput.magnitude > deadZone ? GetExponentialAxis(leftAxisInput * axisSensitivity) : Vector3.zero;
+        leftAxisInput = leftAxisInput.magnitude > deadZone ? 
+            GetExponentialAxis(leftAxisInput * axisSensitivity) : Vector3.zero;
         lAxis += leftAxisInput;
 
         // //L Axis

@@ -8,7 +8,7 @@ public class GraphicsManager : MonoBehaviour
     public Camera mainGameCamera;
     public Camera reflexCamera;
     [TextArea()] public string iniPath;
-    public static RenderTexture gameRenderTexture;
+    public RenderTexture gameRenderTexture;
     public Material[] reflectiveMats;
     public RawImage renderImage;
 

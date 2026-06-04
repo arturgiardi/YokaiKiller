@@ -575,7 +575,6 @@ public class NewController : MonoBehaviour
 		chargedParticle.Stop(true);
 		if (chargingCoroutine != null)
 			StopCoroutine(chargingCoroutine);
-		Time.timeScale = 0.3f;
 		yInput = jump / 2;
 		animator.Play("Death_1", 3);
 		alive = false;

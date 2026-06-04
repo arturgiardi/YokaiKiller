@@ -25,7 +25,6 @@ public class CameraManager : MonoBehaviour
 
 	bool switching = false;
 
-	public static RenderTexture finalRender;
 
 	void Start () 
 	{
@@ -318,6 +317,6 @@ public class CameraManager : MonoBehaviour
 
 	void GetRT()
 	{
-		gameCamera.targetTexture = GraphicsManager.gameRenderTexture;
+		gameCamera.targetTexture = GameManager.instance.graphicsManager.gameRenderTexture;
 	}
 }

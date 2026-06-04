@@ -34,7 +34,6 @@ public class PlatformColliderSwitch : MonoBehaviour
 			colliderObject.center.y;
 		//print (colliderObject.size);
 
-		Debug.Log("Foot Position: " + footPosition.y + " | Top Position: " + topPosition);
 		if (!colliderObject.enabled)
 		{
 			if (footPosition.y >= topPosition + 0.1f)

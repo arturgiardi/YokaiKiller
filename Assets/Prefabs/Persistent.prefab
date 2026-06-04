@@ -3381,11 +3381,11 @@ MonoBehaviour:
   pauseMenu: {fileID: 1981745338822738}
   menuSelectSound: {fileID: 8300000, guid: 2a139e5fe270985458b32648c2a5ab54, type: 3}
   pauseHud: {fileID: 1118517879200800}
-  _bossHpManager: {fileID: 0}
+  _bossHpManager: {fileID: 114861112394578646}
   itemPromptCardPrefab: {fileID: 1615879155695720, guid: a7822a8cead656e4c8c09d22ae35ab97,
     type: 3}
   itemPromptList: {fileID: 224948008717709476}
-  inventoryManager: {fileID: 0}
+  inventoryManager: {fileID: 114094629698664120}
   mapCG: {fileID: 225895027273710890}
 --- !u!1 &1132590789041328
 GameObject:

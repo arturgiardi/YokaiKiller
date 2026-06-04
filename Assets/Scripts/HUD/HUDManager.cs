@@ -47,7 +47,6 @@ public class HUDManager : MonoBehaviour
     public GameObject itemPromptCardPrefab;
     public Transform itemPromptList;
   
-    public InventoryManager inventoryManager;
 
     public CanvasGroup mapCG;
     IEnumerator mapCoroutine;

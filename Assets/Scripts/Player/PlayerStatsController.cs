@@ -35,9 +35,9 @@ public class PlayerSaveData
 	public Vector3 position;
 
 }
-public class PlayerStatsController : MonoBehaviour 
+public class PlayerStatsController : MonoBehaviour
 {
-	public enum BonusStats {Health, Power, Luck};
+	public enum BonusStats { Health, Power, Luck };
 
 	public static PlayerStatsController instance;
 
@@ -84,9 +84,9 @@ public class PlayerStatsController : MonoBehaviour
 	void Awake()
 	{
 		//-> Check instance
-		if(instance != null)
+		if (instance != null)
 		{
-			if(instance != this)
+			if (instance != this)
 			{
 				Destroy(this);
 				return;
@@ -94,13 +94,13 @@ public class PlayerStatsController : MonoBehaviour
 		}
 		else
 			instance = this;
-		
+
 		//-> PlayerStats instance setup
 		PlayerStats.Setup(baseStats);
 		stats = GetCurrentStats();
 
 		//-> External evetns registering
-	
+
 		PlayerStats.instance.OnEarnLevel += OnGetLevel;
 		PlayerStats.instance.OnDamage += OnGetDamaged;
 		PlayerStats.instance.OnDeath += OnDeath;
@@ -113,17 +113,17 @@ public class PlayerStatsController : MonoBehaviour
 		statsInstance.defense = defenseInstance;
 		baseStats = statsInstance;
 
-		
+
 	}
 
 	void Update()
 	{
-		if(Input.GetKeyDown(KeyCode.Y))
+		if (Input.GetKeyDown(KeyCode.Y))
 		{
 			//SaveState();
 			Debug.Log(saveState.skillFlags.havePowerAttack);
 		}
-		if(Input.GetKeyDown(KeyCode.U))
+		if (Input.GetKeyDown(KeyCode.U))
 		{
 			LoadSaveState();
 		}
@@ -136,55 +136,55 @@ public class PlayerStatsController : MonoBehaviour
 		returnStats.defense = UnityEngine.Object.Instantiate(baseStats.defense) as DefenseInfo;
 
 		//if weapon
-		if(newItem.iType == ItemType.Weapon)
+		if (newItem.iType == ItemType.Weapon)
 			returnStats.AddEquipment(newItem);
 		else
 			returnStats.AddEquipment(currentWeapon);
-		
+
 		//if artifact s1
-		if(newItem.iType == ItemType.Artifact && selectedArtifactSlot == 1)
+		if (newItem.iType == ItemType.Artifact && selectedArtifactSlot == 1)
 			returnStats.AddEquipment(newItem);
 		else
 			returnStats.AddEquipment(artifactSlot1);
 
 		//if artifact s2
-		if(newItem.iType == ItemType.Artifact && selectedArtifactSlot == 2)
+		if (newItem.iType == ItemType.Artifact && selectedArtifactSlot == 2)
 			returnStats.AddEquipment(newItem);
 		else
 			returnStats.AddEquipment(artifactSlot2);
 
 		//if artifact s3
-		if(newItem.iType == ItemType.Artifact && selectedArtifactSlot == 3)
+		if (newItem.iType == ItemType.Artifact && selectedArtifactSlot == 3)
 			returnStats.AddEquipment(newItem);
 		else
 			returnStats.AddEquipment(artifactSlot3);
 
 		//if artifact s4
-		if(newItem.iType == ItemType.Artifact && selectedArtifactSlot == 4)
+		if (newItem.iType == ItemType.Artifact && selectedArtifactSlot == 4)
 			returnStats.AddEquipment(newItem);
 		else
 			returnStats.AddEquipment(artifactSlot4);
 
 		//if artifact s5
-		if(newItem.iType == ItemType.Artifact && selectedArtifactSlot == 5)
+		if (newItem.iType == ItemType.Artifact && selectedArtifactSlot == 5)
 			returnStats.AddEquipment(newItem);
 		else
 			returnStats.AddEquipment(artifactSlot5);
 
 		//if artifact s6
-		if(newItem.iType == ItemType.Artifact && selectedArtifactSlot == 6)
+		if (newItem.iType == ItemType.Artifact && selectedArtifactSlot == 6)
 			returnStats.AddEquipment(newItem);
 		else
 			returnStats.AddEquipment(artifactSlot6);
 
 		//if artifact s7
-		if(newItem.iType == ItemType.Artifact && selectedArtifactSlot == 7)
+		if (newItem.iType == ItemType.Artifact && selectedArtifactSlot == 7)
 			returnStats.AddEquipment(newItem);
 		else
 			returnStats.AddEquipment(artifactSlot7);
 
 		//if artifact s8
-		if(newItem.iType == ItemType.Artifact && selectedArtifactSlot == 8)
+		if (newItem.iType == ItemType.Artifact && selectedArtifactSlot == 8)
 			returnStats.AddEquipment(newItem);
 		else
 			returnStats.AddEquipment(artifactSlot8);
@@ -195,7 +195,7 @@ public class PlayerStatsController : MonoBehaviour
 
 	public void ChangeWeapon(Item newWeapon)
 	{
-		if(EquipmentSelectionBtn.OnChangeWeapon != null)
+		if (EquipmentSelectionBtn.OnChangeWeapon != null)
 			EquipmentSelectionBtn.OnChangeWeapon(newWeapon);
 		currentWeapon = newWeapon;
 		GetCurrentStats();
@@ -204,11 +204,11 @@ public class PlayerStatsController : MonoBehaviour
 	public void ChangeArtifact(Item newArtifact)
 	{
 		CheckArtifactDuplicate(newArtifact);
-		if(EquipmentSelectionBtn.OnChangeArtifact != null)
-				EquipmentSelectionBtn.OnChangeArtifact(newArtifact, selectedArtifactSlot);
-		if(newArtifact.id == -1)
+		if (EquipmentSelectionBtn.OnChangeArtifact != null)
+			EquipmentSelectionBtn.OnChangeArtifact(newArtifact, selectedArtifactSlot);
+		if (newArtifact.id == -1)
 		{
-			switch(selectedArtifactSlot)
+			switch (selectedArtifactSlot)
 			{
 				case 1:
 					PlayerStats.instance.RemoveEquipment(artifactSlot1);
@@ -246,7 +246,7 @@ public class PlayerStatsController : MonoBehaviour
 		}
 		else
 		{
-			switch(selectedArtifactSlot)
+			switch (selectedArtifactSlot)
 			{
 				case 1:
 					artifactSlot1 = newArtifact;
@@ -279,58 +279,58 @@ public class PlayerStatsController : MonoBehaviour
 
 	public void CheckArtifactDuplicate(Item newArtifact)
 	{
-		if(newArtifact == artifactSlot1)
+		if (newArtifact == artifactSlot1)
 		{
-			if(EquipmentSelectionBtn.OnChangeArtifact != null)
+			if (EquipmentSelectionBtn.OnChangeArtifact != null)
 				EquipmentSelectionBtn.OnChangeArtifact(null, 1);
 			PlayerStats.instance.RemoveEquipment(artifactSlot1);
 			artifactSlot1 = null;
 		}
-		if(newArtifact == artifactSlot2)
+		if (newArtifact == artifactSlot2)
 		{
-			if(EquipmentSelectionBtn.OnChangeArtifact != null)
+			if (EquipmentSelectionBtn.OnChangeArtifact != null)
 				EquipmentSelectionBtn.OnChangeArtifact(null, 2);
 			PlayerStats.instance.RemoveEquipment(artifactSlot2);
 			artifactSlot2 = null;
 		}
-		if(newArtifact == artifactSlot3)
+		if (newArtifact == artifactSlot3)
 		{
-			if(EquipmentSelectionBtn.OnChangeArtifact != null)
+			if (EquipmentSelectionBtn.OnChangeArtifact != null)
 				EquipmentSelectionBtn.OnChangeArtifact(null, 3);
 			PlayerStats.instance.RemoveEquipment(artifactSlot3);
 			artifactSlot3 = null;
 		}
-		if(newArtifact == artifactSlot4)
+		if (newArtifact == artifactSlot4)
 		{
-			if(EquipmentSelectionBtn.OnChangeArtifact != null)
+			if (EquipmentSelectionBtn.OnChangeArtifact != null)
 				EquipmentSelectionBtn.OnChangeArtifact(null, 4);
 			PlayerStats.instance.RemoveEquipment(artifactSlot4);
 			artifactSlot4 = null;
 		}
-		if(newArtifact == artifactSlot5)
+		if (newArtifact == artifactSlot5)
 		{
-			if(EquipmentSelectionBtn.OnChangeArtifact != null)
+			if (EquipmentSelectionBtn.OnChangeArtifact != null)
 				EquipmentSelectionBtn.OnChangeArtifact(null, 5);
 			PlayerStats.instance.RemoveEquipment(artifactSlot5);
 			artifactSlot5 = null;
 		}
-		if(newArtifact == artifactSlot6)
+		if (newArtifact == artifactSlot6)
 		{
-			if(EquipmentSelectionBtn.OnChangeArtifact != null)
+			if (EquipmentSelectionBtn.OnChangeArtifact != null)
 				EquipmentSelectionBtn.OnChangeArtifact(null, 6);
 			PlayerStats.instance.RemoveEquipment(artifactSlot6);
 			artifactSlot6 = null;
 		}
-		if(newArtifact == artifactSlot7)
+		if (newArtifact == artifactSlot7)
 		{
-			if(EquipmentSelectionBtn.OnChangeArtifact != null)
+			if (EquipmentSelectionBtn.OnChangeArtifact != null)
 				EquipmentSelectionBtn.OnChangeArtifact(null, 7);
 			PlayerStats.instance.RemoveEquipment(artifactSlot7);
 			artifactSlot7 = null;
 		}
-		if(newArtifact == artifactSlot8)
+		if (newArtifact == artifactSlot8)
 		{
-			if(EquipmentSelectionBtn.OnChangeArtifact != null)
+			if (EquipmentSelectionBtn.OnChangeArtifact != null)
 				EquipmentSelectionBtn.OnChangeArtifact(null, 8);
 			PlayerStats.instance.RemoveEquipment(artifactSlot8);
 			artifactSlot8 = null;
@@ -340,17 +340,17 @@ public class PlayerStatsController : MonoBehaviour
 	{
 		PlayerStats.ResetStats(baseStats);
 		PlayerStats.instance.xpMultiplier = 1;
-		List<Item> equipments = new List<Item> {currentWeapon, artifactSlot1, artifactSlot2, artifactSlot3, artifactSlot4, artifactSlot5 , artifactSlot6, artifactSlot7, artifactSlot8};
+		List<Item> equipments = new List<Item> { currentWeapon, artifactSlot1, artifactSlot2, artifactSlot3, artifactSlot4, artifactSlot5, artifactSlot6, artifactSlot7, artifactSlot8 };
 		List<Item> toRemove = new List<Item>();
 		//Debug.Log("count: " + equipments.Count);
-		for(int i = 0; i < equipments.Count; i++)
+		for (int i = 0; i < equipments.Count; i++)
 		{
-			if(equipments[i] == null)
+			if (equipments[i] == null)
 			{
 				//Debug.Log("removing " + i);
 				toRemove.Add(equipments[i]);
 			}
-			else if(equipments[i].equipBehaviour == null)
+			else if (equipments[i].equipBehaviour == null)
 			{
 				//Debug.Log("removing " + i);
 				toRemove.Add(equipments[i]);
@@ -362,19 +362,19 @@ public class PlayerStatsController : MonoBehaviour
 			}
 		}
 
-		foreach(Item item in toRemove)
+		foreach (Item item in toRemove)
 		{
 			equipments.Remove(item);
 		}
 
-		foreach(Item equipment in equipments)
+		foreach (Item equipment in equipments)
 		{
 			//Debug.Log(equipment.iName);
 		}
 
-		equipments.Sort(delegate(Item x, Item y) { return x.equipBehaviour.priority.CompareTo(y.equipBehaviour.priority); });
-			
-		foreach(Item equipment in equipments)
+		equipments.Sort(delegate (Item x, Item y) { return x.equipBehaviour.priority.CompareTo(y.equipBehaviour.priority); });
+
+		foreach (Item equipment in equipments)
 		{
 			PlayerStats.instance.AddEquipment(equipment);
 		}
@@ -387,19 +387,24 @@ public class PlayerStatsController : MonoBehaviour
 		// PlayerStats.instance.AddEquipment(artifactSlot6);
 		// PlayerStats.instance.AddEquipment(artifactSlot7);
 		// PlayerStats.instance.AddEquipment(artifactSlot8);
-		if(PlayerStats.instance.currentHealth > PlayerStats.instance.maxHealth)
+		if (PlayerStats.instance.currentHealth > PlayerStats.instance.maxHealth)
 			PlayerStats.instance.currentHealth = PlayerStats.instance.maxHealth;
-        if (PlayerStats.instance.OnChangeHP != null)
-            PlayerStats.instance.OnChangeHP(PlayerStats.instance.maxHealth, PlayerStats.instance.currentHealth);
+		if (PlayerStats.instance.OnChangeHP != null)
+			PlayerStats.instance.OnChangeHP(PlayerStats.instance.maxHealth, PlayerStats.instance.currentHealth);
 
-        return PlayerStats.instance;
+		return PlayerStats.instance;
 
 	}
 
 	public void LoadSaveState()
 	{
+		if(saveState == null || saveState.scene == string.Empty)
+		{
+			GameManager.instance.RestartDemo();
+			return;
+		}
 		GameManager.instance.playerInventory.inventory.Clear();
-		foreach(int item in saveState.inventory)
+		foreach (int item in saveState.inventory)
 		{
 			GameManager.instance.playerInventory.inventory.Add(GameManager.instance.itemDB.items[item]);
 		}
@@ -408,106 +413,111 @@ public class PlayerStatsController : MonoBehaviour
 		//Debug.Log(saveState.artifactSlot1);
 		//Debug.Log(GameManager.instance.playerInventory.inventory[saveState.artifactSlot1].iName);
 
-		if(saveState.artifactSlot1 != -1)
+		if (saveState.artifactSlot1 != -1)
 		{
 			artifactSlot1 = GameManager.instance.playerInventory.inventory[saveState.artifactSlot1];
-			if(EquipmentSelectionBtn.OnChangeArtifact != null)
+			if (EquipmentSelectionBtn.OnChangeArtifact != null)
 				EquipmentSelectionBtn.OnChangeArtifact(artifactSlot1, 1);
 		}
-        else
-        {
-            if (EquipmentSelectionBtn.OnChangeArtifact != null)
-                EquipmentSelectionBtn.OnChangeArtifact(null, 1);
-        }
-			
+		else
+		{
+			if (EquipmentSelectionBtn.OnChangeArtifact != null)
+				EquipmentSelectionBtn.OnChangeArtifact(null, 1);
+		}
 
-		if(saveState.artifactSlot2 != -1)
+
+		if (saveState.artifactSlot2 != -1)
 		{
 			artifactSlot2 = GameManager.instance.playerInventory.inventory[saveState.artifactSlot2];
-			if(EquipmentSelectionBtn.OnChangeArtifact != null)
+			if (EquipmentSelectionBtn.OnChangeArtifact != null)
 				EquipmentSelectionBtn.OnChangeArtifact(artifactSlot2, 2);
 		}
-        else
-        {
-            if (EquipmentSelectionBtn.OnChangeArtifact != null)
-                EquipmentSelectionBtn.OnChangeArtifact(null, 2);
-        }
+		else
+		{
+			if (EquipmentSelectionBtn.OnChangeArtifact != null)
+				EquipmentSelectionBtn.OnChangeArtifact(null, 2);
+		}
 
-        if (saveState.artifactSlot3 != -1)
+		if (saveState.artifactSlot3 != -1)
 		{
 			artifactSlot3 = GameManager.instance.playerInventory.inventory[saveState.artifactSlot3];
-			if(EquipmentSelectionBtn.OnChangeArtifact != null)
+			if (EquipmentSelectionBtn.OnChangeArtifact != null)
 				EquipmentSelectionBtn.OnChangeArtifact(artifactSlot3, 3);
 		}
-        else
-        {
-            if (EquipmentSelectionBtn.OnChangeArtifact != null)
-                EquipmentSelectionBtn.OnChangeArtifact(null, 3);
-        }
+		else
+		{
+			if (EquipmentSelectionBtn.OnChangeArtifact != null)
+				EquipmentSelectionBtn.OnChangeArtifact(null, 3);
+		}
 
-        if (saveState.artifactSlot4 != -1)
+		if (saveState.artifactSlot4 != -1)
 		{
 			artifactSlot4 = GameManager.instance.playerInventory.inventory[saveState.artifactSlot4];
-			if(EquipmentSelectionBtn.OnChangeArtifact != null)
+			if (EquipmentSelectionBtn.OnChangeArtifact != null)
 				EquipmentSelectionBtn.OnChangeArtifact(artifactSlot4, 4);
 		}
-        else
-        {
-            if (EquipmentSelectionBtn.OnChangeArtifact != null)
-                EquipmentSelectionBtn.OnChangeArtifact(null, 4);
-        }
+		else
+		{
+			if (EquipmentSelectionBtn.OnChangeArtifact != null)
+				EquipmentSelectionBtn.OnChangeArtifact(null, 4);
+		}
 
-        if (saveState.artifactSlot5 != -1)
+		if (saveState.artifactSlot5 != -1)
 		{
 			artifactSlot5 = GameManager.instance.playerInventory.inventory[saveState.artifactSlot5];
-			if(EquipmentSelectionBtn.OnChangeArtifact != null)
+			if (EquipmentSelectionBtn.OnChangeArtifact != null)
 				EquipmentSelectionBtn.OnChangeArtifact(artifactSlot5, 5);
 		}
-        else
-        {
-            if (EquipmentSelectionBtn.OnChangeArtifact != null)
-                EquipmentSelectionBtn.OnChangeArtifact(null, 5);
-        }
+		else
+		{
+			if (EquipmentSelectionBtn.OnChangeArtifact != null)
+				EquipmentSelectionBtn.OnChangeArtifact(null, 5);
+		}
 
-        if (saveState.artifactSlot6 != -1)
+		if (saveState.artifactSlot6 != -1)
 		{
 			artifactSlot6 = GameManager.instance.playerInventory.inventory[saveState.artifactSlot6];
-			if(EquipmentSelectionBtn.OnChangeArtifact != null)
+			if (EquipmentSelectionBtn.OnChangeArtifact != null)
 				EquipmentSelectionBtn.OnChangeArtifact(artifactSlot6, 6);
-		
-		}
-        else
-        {
-            if (EquipmentSelectionBtn.OnChangeArtifact != null)
-                EquipmentSelectionBtn.OnChangeArtifact(null, 6);
-        }
 
-        if (saveState.artifactSlot7 != -1)
+		}
+		else
+		{
+			if (EquipmentSelectionBtn.OnChangeArtifact != null)
+				EquipmentSelectionBtn.OnChangeArtifact(null, 6);
+		}
+
+		if (saveState.artifactSlot7 != -1)
 		{
 			artifactSlot7 = GameManager.instance.playerInventory.inventory[saveState.artifactSlot7];
-			if(EquipmentSelectionBtn.OnChangeArtifact != null)
+			if (EquipmentSelectionBtn.OnChangeArtifact != null)
 				EquipmentSelectionBtn.OnChangeArtifact(artifactSlot7, 7);
 		}
-        else
-        {
-            if (EquipmentSelectionBtn.OnChangeArtifact != null)
-                EquipmentSelectionBtn.OnChangeArtifact(null, 7);
-        }
+		else
+		{
+			if (EquipmentSelectionBtn.OnChangeArtifact != null)
+				EquipmentSelectionBtn.OnChangeArtifact(null, 7);
+		}
 
-        if (saveState.artifactSlot8 != -1)
+		if (saveState.artifactSlot8 != -1)
 		{
 			artifactSlot8 = GameManager.instance.playerInventory.inventory[saveState.artifactSlot8];
-			if(EquipmentSelectionBtn.OnChangeArtifact != null)
+			if (EquipmentSelectionBtn.OnChangeArtifact != null)
 				EquipmentSelectionBtn.OnChangeArtifact(artifactSlot8, 8);
 		}
-        else
-        {
-            if (EquipmentSelectionBtn.OnChangeArtifact != null)
-                EquipmentSelectionBtn.OnChangeArtifact(null, 8);
-        }
-        currentWeapon = GameManager.instance.playerInventory.inventory[saveState.weapon];
+		else
+		{
+			if (EquipmentSelectionBtn.OnChangeArtifact != null)
+				EquipmentSelectionBtn.OnChangeArtifact(null, 8);
+		}
+		var inventory = GameManager.instance.playerInventory.inventory;
 
-		ChangeWeapon(currentWeapon);
+		if (saveState.weapon >= 0 && saveState.weapon < inventory.Count)
+		{
+			currentWeapon = inventory[saveState.weapon];
+			ChangeWeapon(currentWeapon);
+		}
+
 
 		baseStats.maxHealth = saveState.maxHealth;
 		baseStats.currentHealth = saveState.maxHealth;
@@ -526,7 +536,7 @@ public class PlayerStatsController : MonoBehaviour
 		PlayerStats.instance.level = saveState.level;
 
 		GameManager.instance.itemValidator.RestoreIds();
-		
+
 		GetCurrentStats();
 		PlayerStats.instance.UpdateXP();
 
@@ -543,40 +553,40 @@ public class PlayerStatsController : MonoBehaviour
 		PlayerSaveData newSS = new PlayerSaveData();
 
 		List<int> itemIDList = new List<int>();
-		for(int i = 0; i < GameManager.instance.playerInventory.inventory.Count; i++)
+		for (int i = 0; i < GameManager.instance.playerInventory.inventory.Count; i++)
 		{
 			itemIDList.Add(GameManager.instance.playerInventory.inventory[i].id);
 
-			if(GameManager.instance.playerInventory.inventory[i] == currentWeapon)
+			if (GameManager.instance.playerInventory.inventory[i] == currentWeapon)
 				newSS.weapon = i;
 
-			if(GameManager.instance.playerInventory.inventory[i] == artifactSlot1)
+			if (GameManager.instance.playerInventory.inventory[i] == artifactSlot1)
 				newSS.artifactSlot1 = i;
 
-			if(GameManager.instance.playerInventory.inventory[i] == artifactSlot2)
+			if (GameManager.instance.playerInventory.inventory[i] == artifactSlot2)
 				newSS.artifactSlot2 = i;
 
-			if(GameManager.instance.playerInventory.inventory[i] == artifactSlot3)
+			if (GameManager.instance.playerInventory.inventory[i] == artifactSlot3)
 				newSS.artifactSlot3 = i;
 
-			if(GameManager.instance.playerInventory.inventory[i] == artifactSlot4)
+			if (GameManager.instance.playerInventory.inventory[i] == artifactSlot4)
 				newSS.artifactSlot4 = i;
 
-			if(GameManager.instance.playerInventory.inventory[i] == artifactSlot5)
+			if (GameManager.instance.playerInventory.inventory[i] == artifactSlot5)
 				newSS.artifactSlot5 = i;
 
-			if(GameManager.instance.playerInventory.inventory[i] == artifactSlot6)
+			if (GameManager.instance.playerInventory.inventory[i] == artifactSlot6)
 				newSS.artifactSlot6 = i;
 
-			if(GameManager.instance.playerInventory.inventory[i] == artifactSlot7)
+			if (GameManager.instance.playerInventory.inventory[i] == artifactSlot7)
 				newSS.artifactSlot7 = i;
 
-			if(GameManager.instance.playerInventory.inventory[i] == artifactSlot8)
-				newSS.artifactSlot8 = i;	
+			if (GameManager.instance.playerInventory.inventory[i] == artifactSlot8)
+				newSS.artifactSlot8 = i;
 		}
 
 		newSS.inventory = itemIDList.ToArray();
-		
+
 		newSS.maxHealth = baseStats.maxHealth;
 
 		newSS.power = baseStats.damage.power;
@@ -607,13 +617,13 @@ public class PlayerStatsController : MonoBehaviour
 	{
 		baseStats.damage.power += 1;
 		baseStats.damage.criticalChance += 0;
-		baseStats.maxHealth += 2;	
+		baseStats.maxHealth += 2;
 		baseStats.currentHealth += 2;
 		GetCurrentStats();
 		levelUpFX.Play();
 		aPlayer.PlayAudio(levelUpSFX);
-		TextPopup.InstantiateText("Level Up!", 
-			GameManager.instance.controller.transform.position + 
+		TextPopup.InstantiateText("Level Up!",
+			GameManager.instance.controller.transform.position +
 			GameManager.instance.controller.GetComponent<CharacterController>().center);
 		GameManager.instance.SwitchLevelUp(true);
 
@@ -621,18 +631,18 @@ public class PlayerStatsController : MonoBehaviour
 
 	public void GetLevelBonus(string bonus)
 	{
-		switch(bonus)
+		switch (bonus)
 		{
 			case "health":
 				baseStats.maxHealth += 3;
 				baseStats.currentHealth += 3;
-			break;
+				break;
 			case "power":
 				baseStats.damage.power += 1;
-			break;
+				break;
 			case "luck":
 				baseStats.damage.criticalChance += 1f;
-			break;
+				break;
 		}
 		GameManager.instance.SwitchLevelUp(false);
 		GetCurrentStats();
@@ -641,7 +651,7 @@ public class PlayerStatsController : MonoBehaviour
 	public void OnGetDamaged(GameObject instigator, DamageInfo damage, Stats attacker)
 	{
 		aPlayer.PlayAudio(damageSFX);
-		if(attacker != null)
+		if (attacker != null)
 		{
 			bloodParticles.Play();
 		}

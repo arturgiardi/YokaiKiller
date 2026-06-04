@@ -161,7 +161,7 @@ public class GameManager : MonoBehaviour
     {
         if (ltPressed && rtPressed && selectPressed)
         {
-            ExitDemo();
+            RestartDemo();
             return;
         }
         if (!paused)
@@ -213,18 +213,24 @@ public class GameManager : MonoBehaviour
     {
         menuManager.SwitchDeathMenu();
         InputManager.OnPressStart -= PauseGame;
-        InputManager.OnPressStart += LoadLastState;
+        StartCoroutine(DeathCoroutine());
+        
     }
     void StartReviveBehaviour()
     {
-        menuManager.SwitchDeathMenu();
-        InputManager.OnPressStart -= LoadLastState;
+        ScreenFaderManager.instance.ScreenFadeIn();
         InputManager.OnPressStart += PauseGame;
     }
 
-    void LoadLastState()
+    private IEnumerator DeathCoroutine()
     {
+		Time.timeScale = 0.3f;
         volumeManager.StopMusic(4);
+        yield return new WaitForSeconds(.75f);
+        menuManager.SwitchDeathMenu();
+		Time.timeScale = 1f;
+        ScreenFaderManager.instance.ScreenFadeOut();
+        yield return new WaitForSeconds(1);
         PlayerStatsController.instance.LoadSaveState();
         StartReviveBehaviour();
     }
@@ -309,7 +315,7 @@ public class GameManager : MonoBehaviour
         selectPressed = false;
     }
 
-    void ExitDemo()
+    public void RestartDemo()
     {
         PlayerStats.instance.Unset();
         InputManager.singleton.readingInput = false;

@@ -38,6 +38,7 @@ public class ItemStatsPredict : MonoBehaviour
 
     void ShowItemStatsPrediction(Item item)
     {   
+        Debug.Log("Showing Item Stats Prediction");
         if(item != null)
         {
             PlayerStats statsPrediction = PlayerStatsController.instance.GetStatsPrediction(item);

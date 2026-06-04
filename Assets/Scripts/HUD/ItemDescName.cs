@@ -3,7 +3,7 @@ using TMPro;
 
 public class ItemDescName : MonoBehaviour
 {
-    public delegate void ItemDescNameEvent (Item itemData);
+    public delegate void ItemDescNameEvent(Item itemData);
 
     public static ItemDescNameEvent OnItemSelect;
 
@@ -18,9 +18,9 @@ public class ItemDescName : MonoBehaviour
 
     void ShowItemDescName(Item data)
     {
-        if(data == null)
+        if (data == null)
         {
-            nameField.text = "Remover equipamento";
+            nameField.text = "Remove equipment";
             descField.text = "";
         }
         else
@@ -30,5 +30,9 @@ public class ItemDescName : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        OnItemSelect -= ShowItemDescName;
+    }
 
 }

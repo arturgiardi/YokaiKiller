@@ -15,7 +15,7 @@ MonoBehaviour:
   alive: 1
   level: 10
   experience: 0
-  maxHealth: 500
+  maxHealth: 1500
   currentHealth: 0
   enemyName: Jubokko
   activationRange: 10

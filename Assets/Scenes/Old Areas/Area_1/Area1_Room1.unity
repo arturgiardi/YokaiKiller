@@ -10019,15 +10019,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4489790709834088, guid: 75565633a1503604485782889fbb23a1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4489790709834088, guid: 75565633a1503604485782889fbb23a1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4489790709834088, guid: 75565633a1503604485782889fbb23a1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4489790709834088, guid: 75565633a1503604485782889fbb23a1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -188958,7 +188958,7 @@ PlayableDirector:
   m_GameObject: {fileID: 2020161270}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: dab4cc9806278d8429a9fe20784fcd34, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 720d4c8e451760948ad5aa24e9b4fd98, type: 2}
   m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -189126,6 +189126,8 @@ PlayableDirector:
     value: {fileID: 1569344634}
   - key: {fileID: 0}
     value: {fileID: 0}
+  - key: {fileID: -2384260277916118966, guid: 720d4c8e451760948ad5aa24e9b4fd98, type: 2}
+    value: {fileID: 687700959}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &2020161273
@@ -189213,7 +189215,6 @@ MonoBehaviour:
   ambushMusic: {fileID: 8300000, guid: de83db67b38df3f438265ffe99c44d47, type: 3}
   swordAudio: {fileID: 8300000, guid: 6d18ca0a658e03b408042236b33045a8, type: 3}
   cutsceneRaiko: {fileID: 1792647693}
-  raiko: {fileID: 325114121}
   cutsceneCamera: {fileID: 625548306}
   gameCamera: {fileID: 325114120}
   cameraFinalPosition: {fileID: 329656759}

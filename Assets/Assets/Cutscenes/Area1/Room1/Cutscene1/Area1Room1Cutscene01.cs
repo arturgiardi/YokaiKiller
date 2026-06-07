@@ -49,7 +49,7 @@ public class Area1Room1Cutscene01 : MonoBehaviour
         director.playableAsset = null;
         CinematicController.Cinematic_DisablePlayerPrefab();
         CinematicController.Cinematic_DisableMainCamera();
-        CinematicController.Cinematic_DisableIngameHud();     
+        CinematicController.Cinematic_DisableIngameHud();   
     }
 
     void Update()

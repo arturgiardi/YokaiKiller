@@ -95,7 +95,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 2388c079ea3ec6846b98280d83ea0603,
+    type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 12867dfef5ac2d8498990bd7418a2683,
     type: 2}
 --- !u!196 &4
@@ -120700,7 +120701,9 @@ PrefabInstance:
       propertyPath: spreadCustomCurve.m_RotationOrder
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 54568047439243034, guid: 75565633a1503604485782889fbb23a1, type: 3}
+    - {fileID: 65500719260308536, guid: 75565633a1503604485782889fbb23a1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

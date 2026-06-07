@@ -71,6 +71,8 @@ public class SceneSwitchTest : MonoBehaviour {
 	}
 
 	public void FinishGame(){
+		PlayerStats.instance.Unset();
+        InputManager.singleton.readingInput = false;
 		AudioManager.instance.ChangeAmbientVolume(0.3f,0);
 		HUDManager.hudMan.FinishGame();
 		GameManager.instance.controller.DisableController();

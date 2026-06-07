@@ -34,9 +34,9 @@ public class Area1Room1Cutscene02 : MonoBehaviour
     [SerializeField] Dialogue[] dialogue5;
     [SerializeField] Dialogue[] dialogue6;
     [SerializeField] Dialogue[] dialogue7;
-    
 
-    [Header ("Sound")]
+
+    [Header("Sound")]
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip tensionMusic;
     [SerializeField] AudioClip ambushMusic;
@@ -44,7 +44,8 @@ public class Area1Room1Cutscene02 : MonoBehaviour
 
     [Header("GO References")]
     [SerializeField] GameObject cutsceneRaiko;
-    [SerializeField] GameObject raiko;
+    [SerializeField] BreakGround BreakGround;
+    GameObject raiko => GameManager.instance.controller.gameObject;
     [SerializeField] GameObject cutsceneCamera;
     [SerializeField] GameObject gameCamera;
     [SerializeField] Transform cameraFinalPosition;
@@ -52,7 +53,7 @@ public class Area1Room1Cutscene02 : MonoBehaviour
     [SerializeField] Animator watanabe;
     [SerializeField] Animator kintaro;
     [SerializeField] Animator urabe;
-    
+
     [SerializeField] private GameObject target;
     [SerializeField] private string message;
     [SerializeField] private MessageContent messageContent;
@@ -72,6 +73,7 @@ public class Area1Room1Cutscene02 : MonoBehaviour
     {
         director = GetComponent<PlayableDirector>();
         director.playableAsset = null;
+        cutsceneRaiko.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -83,7 +85,7 @@ public class Area1Room1Cutscene02 : MonoBehaviour
             if (!triggered)
             {
                 InputManager.OnPressBack += SkipCut;
-                AudioManager.instance.ChangeAmbientVolume(0.5f,0);
+                AudioManager.instance.ChangeAmbientVolume(0.5f, 0);
                 cutsceneCamera.SetActive(true);
                 CinematicController.Cinematic_DisablePlayerPrefab();
                 CinematicController.Cinematic_DisablePlayerController();
@@ -92,7 +94,7 @@ public class Area1Room1Cutscene02 : MonoBehaviour
 
                 cutCoroutine = _Cutscene();
                 cutsceneRaiko.SetActive(true);
-                cutsceneRaiko.transform.position = raiko.transform.position;                
+                cutsceneRaiko.transform.position = raiko.transform.position;
                 cutsceneCamera.transform.position = gameCamera.transform.position;
                 StartCoroutine(cutCoroutine);
                 triggered = true;
@@ -118,7 +120,7 @@ public class Area1Room1Cutscene02 : MonoBehaviour
         AudioManager.instance.music.Play();
         director.playableAsset = timeline1;
         director.Play();
-        yield return new WaitForSeconds((float)timeline1.duration);        
+        yield return new WaitForSeconds((float)timeline1.duration);
         DialogueManager.instance.StartDialogue(dialogue1);
         yield return new WaitUntil(() => DialogueManager.instance.endDialogue);
         director.playableAsset = timeline2;
@@ -129,12 +131,12 @@ public class Area1Room1Cutscene02 : MonoBehaviour
         yield return waitHalfSecond;
         DialogueManager.instance.StartDialogue(dialogue2_5);
         yield return new WaitUntil(() => DialogueManager.instance.endDialogue);
-        
+
         DialogueManager.instance.StartDialogue(dialogue3);
         yield return new WaitUntil(() => DialogueManager.instance.endDialogue);
         director.playableAsset = timeline3;
         director.Play();
-        yield return new WaitForSeconds((float)(timeline3.duration *0.4));
+        yield return new WaitForSeconds((float)(timeline3.duration * 0.4));
         DialogueManager.instance.StartDialogue(dialogue4);
         yield return new WaitUntil(() => DialogueManager.instance.endDialogue);
         director.playableAsset = timeline3_5;
@@ -168,12 +170,13 @@ public class Area1Room1Cutscene02 : MonoBehaviour
         director.Play();
         yield return new WaitForSeconds((float)timeline6.duration);
 
-        target.SendMessage(message, messageContent, SendMessageOptions.DontRequireReceiver);
-        yield return new WaitForSecondsRealtime(0.3f);
         director.playableAsset = timeline7;
         director.Play();
-        yield return new WaitForSeconds(2.2f);
         kintaro.SetTrigger("Idle");
+
+        yield return new WaitForSecondsRealtime(0.3f);
+        yield return BreakGround.Break(cutsceneRaiko.transform);
+        yield return new WaitForSeconds(1.2f);
 
         DialogueManager.instance.StartDialogue(dialogue7);
         yield return new WaitUntil(() => DialogueManager.instance.endDialogue);
@@ -186,7 +189,7 @@ public class Area1Room1Cutscene02 : MonoBehaviour
         TriggerMessage.MessageContent transitionInfo = new TriggerMessage.MessageContent(new float[0], new Vector3[0], new string[] { "Area1_Room2", "A" });
         GameManager.instance.sceneSwitcher.StartSwitch(transitionInfo);
     }
-    
+
 
     void SkipCut()
     {

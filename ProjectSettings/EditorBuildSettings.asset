@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 6def31dd2c671f64f9409a295bb3e115
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Old Areas/Area_1/TestAreas/TestRoom.unity
     guid: e4ff7865c01a69e40bf16a7ccac31d78
   - enabled: 1
@@ -123,3 +123,4 @@ EditorBuildSettings:
     path: Assets/Scenes/Course Demo/Course Demo.unity
     guid: cdaeee72092ce17498e1861722d4b563
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0

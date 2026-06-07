@@ -144,9 +144,7 @@ PlayerSettings:
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
   bundleVersion: 1.0
-  preloadedAssets:
-  - {fileID: 11400000, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
-  - {fileID: 11400000, guid: 943779a77a43ab94abd03f2a4f3843b9, type: 2}
+  preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -901,7 +899,12 @@ PlayerSettings:
   windowsGamepadBackendHint: 0
   cloudProjectId: 98add452-fa0a-4728-bcf9-a0417e514d10
   framebufferDepthMemorylessMode: 0
-  qualitySettingsNames: []
+  qualitySettingsNames:
+  - Low
+  - Simple
+  - Good
+  - High
+  - Ultra
   projectName: Yokai Killer Shuten Doji
   organizationId: yokai-killer
   cloudEnabled: 0

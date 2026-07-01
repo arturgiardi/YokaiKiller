@@ -9874,7 +9874,7 @@ MonoBehaviour:
 
     However, if you release <sprite=225> before
     the aura is fully charged, nothing will happen.'
-  itemName: H
+  itemName: Hidden Power Scroll
   soundFX: {fileID: 1492442314658126, guid: c65c848be1c29bc4fa4ae33b9c103572, type: 3}
 --- !u!114 &114415923165226726
 MonoBehaviour:
